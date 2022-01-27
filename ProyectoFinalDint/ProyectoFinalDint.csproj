@@ -81,6 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="modelo\Vehiculo.cs" />
     <Compile Include="servicios\Servicio.cs" />
     <Compile Include="vistamodelo\VistaModelo.cs" />
     <Compile Include="vistas\Vista.cs" />
@@ -100,7 +101,6 @@
   <ItemGroup>
     <Compile Include="MainWindowVM.cs" />
     <Compile Include="mensajes\Mensajes.cs" />
-    <Compile Include="modelo\Coche.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
