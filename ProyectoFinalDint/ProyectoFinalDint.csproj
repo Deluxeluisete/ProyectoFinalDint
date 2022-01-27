@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowVM.cs" />
+    <Compile Include="mensajes\Mensajes.cs" />
     <Compile Include="modelo\Coche.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -125,7 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
-    <Folder Include="mensajes\" />
     <Folder Include="servicios\" />
     <Folder Include="vistamodelo\" />
     <Folder Include="vistas\" />
