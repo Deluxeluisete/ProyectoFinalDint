@@ -81,6 +81,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="servicios\Servicio.cs" />
+    <Compile Include="vistamodelo\VistaModelo.cs" />
+    <Compile Include="vistas\Vista.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,11 +127,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="assets\" />
-    <Folder Include="servicios\" />
-    <Folder Include="vistamodelo\" />
-    <Folder Include="vistas\" />
+    <Content Include="assets\descarga.jfif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
