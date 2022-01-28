@@ -111,6 +111,7 @@
     <Compile Include="modelo\Estacionamientos.cs" />
     <Compile Include="modelo\Marcas.cs" />
     <Compile Include="modelo\Vehiculos.cs" />
+    <Compile Include="servicios\ClientesSQLiteRepository.cs" />
     <Compile Include="servicios\DatabaseService.cs" />
     <Compile Include="servicios\MessageService.cs" />
     <Compile Include="servicios\NavigationService.cs" />
