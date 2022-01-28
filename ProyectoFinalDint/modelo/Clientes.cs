@@ -31,8 +31,6 @@ namespace ProyectoFinalDint.modelo
   
             this.edad = edad;
        
-           
-           
         }
 
         private int id_cliente;
@@ -86,7 +84,5 @@ namespace ProyectoFinalDint.modelo
             get { return edad; }
             set { SetProperty(ref edad, value); }
         }
-      
-
     }
 }

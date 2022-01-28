@@ -189,17 +189,17 @@ namespace ProyectoFinalDint.servicios
 
         public bool DeleteClienteById(int id)
         {
-            this.conexion.Open();
-            comando = conexion.CreateCommand();
-
-            comando.CommandText = "DELETE FROM clientes WHERE id_cliente = @id";
-
-            comando.Parameters.Add("@id", SqliteType.Integer);
-
-            comando.Parameters["@id"].Value = id;
-
             if (FindById(id) != null)
             {
+                this.conexion.Open();
+                comando = conexion.CreateCommand();
+
+                comando.CommandText = "DELETE FROM clientes WHERE id_cliente = @id";
+
+                comando.Parameters.Add("@id", SqliteType.Integer);
+
+                comando.Parameters["@id"].Value = id;
+
                 comando.ExecuteNonQuery();
                 this.conexion.Close();
                 return true;
