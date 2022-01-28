@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalDint.modelo
 {
-    class Estacionamiento : ObservableObject
+    class Estacionamientos : ObservableObject
     {
         private int id_estacionamiento;
 

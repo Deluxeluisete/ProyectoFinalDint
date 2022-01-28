@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalDint.modelo
 {
-    class Marca: ObservableObject
+    class Marcas: ObservableObject
     {
         private int id_marca;
 
@@ -25,7 +25,7 @@ namespace ProyectoFinalDint.modelo
             set { SetProperty(ref marca, value); }
         }
 
-        public Marca(int id_marca, string marca)
+        public Marcas(int id_marca, string marca)
         {
             Id_marca = id_marca;
             Marca = marca;

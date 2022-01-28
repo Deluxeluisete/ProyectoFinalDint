@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalDint.modelo
 {
-    class Vehiculo : ObservableObject
+    class Vehiculos : ObservableObject
     {
         private int id_vehiculo;
 
@@ -57,12 +57,12 @@ namespace ProyectoFinalDint.modelo
             set { SetProperty(ref tipo, value) }
         }
 
-        public Vehiculo()
+        public Vehiculos()
         {
 
         }
 
-        public Vehiculo(int id_vehiculo, int id_cliente, string matricula, int id_marca, string modelo, string tipo)
+        public Vehiculos(int id_vehiculo, int id_cliente, string matricula, int id_marca, string modelo, string tipo)
         {
             Id_vehiculo = id_vehiculo;
             Id_cliente = id_cliente;
