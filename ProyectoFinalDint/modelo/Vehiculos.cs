@@ -30,7 +30,7 @@ namespace ProyectoFinalDint.modelo
         public string Matricula
         {
             get { return matricula; }
-            set { SetProperty(ref matricula, value) }
+            set { SetProperty(ref matricula, value); }
         }
 
         private int id_marca;
@@ -38,7 +38,7 @@ namespace ProyectoFinalDint.modelo
         public int Id_marca
         {
             get { return id_marca; }
-            set { SetProperty(ref id_marca, value) }
+            set { SetProperty(ref id_marca, value); }
         }
 
         private string modelo;
@@ -46,7 +46,7 @@ namespace ProyectoFinalDint.modelo
         public string Modelo
         {
             get { return modelo; }
-            set { SetProperty(ref modelo, value) }
+            set { SetProperty(ref modelo, value); }
         }
 
         private string tipo;
@@ -54,7 +54,7 @@ namespace ProyectoFinalDint.modelo
         public string Tipo
         {
             get { return tipo; }
-            set { SetProperty(ref tipo, value) }
+            set { SetProperty(ref tipo, value); }
         }
 
         public Vehiculos()
