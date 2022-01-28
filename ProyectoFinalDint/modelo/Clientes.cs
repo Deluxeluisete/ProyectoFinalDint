@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalDint.modelo
 {
-    class Cliente : ObservableObject
+    class Clientes : ObservableObject
     {
-        public Cliente()
+        public Clientes()
         {
 
         }
 
-        public Cliente(int id_cliente,  string foto,  string nombre,  string genero,  string documento,  string telefono,  int edad  )
+        public Clientes(int id_cliente,  string foto,  string nombre,  string genero,  string documento,  string telefono,  int edad  )
         {
             this.id_cliente = id_cliente;
       
