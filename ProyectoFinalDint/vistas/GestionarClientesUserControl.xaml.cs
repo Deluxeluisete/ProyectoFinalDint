@@ -13,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProyectoFinalDint
+namespace ProyectoFinalDint.vistas
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para GestionarClientesUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GestionarClientesUserControl : UserControl
     {
-        MainWindowVM vm;
-        public MainWindow()
+        public GestionarClientesUserControl()
         {
             InitializeComponent();
-            vm = new MainWindowVM();
-            this.DataContext = vm;
         }
-
     }
 }

@@ -1,13 +1,36 @@
-﻿<Window x:Class="ProyectoFinalDint.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinalDint"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="ProyectoFinalDint.MainWindow"
         mc:Ignorable="d"
         Icon="assets/carParking.ico"
         Title="Aplicación de gestión del parking" Height="450" Width="800">
     <Grid>
-        <Button Command="{Binding Path=NuevaMarcaButtonCommand}">Añadir nueva Marca</Button>
+        <!--<Button Command="{Binding NuevaMarcaButtonCommand}">-->
+        <!--</Button>-->
+        <DockPanel >
+            <StackPanel DockPanel.Dock="Top">
+
+                <syncfusion:MenuAdv Height="30" Width="auto" VerticalAlignment="Top">
+                    <Grid Width="auto">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <syncfusion:MenuItemAdv Header="Gestionar Clientes"  Command="{Binding Path=AbrirGestionaClientes}" Grid.Column="0" />
+                        <syncfusion:MenuItemAdv Header="Gestionar Vehiculos"  Command="{Binding Path=AbrirGestionaVehiculos}" Grid.Column="1" />
+                        <syncfusion:MenuItemAdv Header="Gestionar Estacionamiento"  Command="{Binding Path=AbrirGestionEstacionamiento} "  Grid.Column="2"  />
+                    </Grid>
+                    <syncfusion:MenuItemAdv/>
+                </syncfusion:MenuAdv>
+            </StackPanel>
+            <Border BorderBrush="Black" BorderThickness="2">
+                <ContentControl Content="{Binding Path=ContenidoVentana}"></ContentControl>
+            </Border>
+        </DockPanel>
     </Grid>
 </Window>
