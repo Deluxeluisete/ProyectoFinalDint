@@ -93,6 +93,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="modelo\Clientes.cs" />
     <Compile Include="modelo\Estacionamientos.cs" />
     <Compile Include="modelo\Marcas.cs" />
     <Compile Include="modelo\Vehiculos.cs" />
