@@ -13,5 +13,9 @@ namespace ProyectoFinalDint
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(ProyectoFinalDint.Properties.Settings.Default.ClaveSyncfusion);
+        }
     }
 }
