@@ -56,6 +56,7 @@ namespace ProyectoFinalDint.modelo
             get { return nombre; }
             set { SetProperty(ref nombre, value); }
         }
+        //hola
       
         private String genero;
 
