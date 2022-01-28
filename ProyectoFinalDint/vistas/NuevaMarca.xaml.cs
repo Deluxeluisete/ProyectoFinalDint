@@ -27,5 +27,11 @@ namespace ProyectoFinalDint.vistas
             vm = new NuevaMarcaVM();
             this.DataContext = vm;
         }
+
+        private void AceptarButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            vm.Aceptar();
+        }
     }
 }
