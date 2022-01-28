@@ -14,7 +14,6 @@ namespace ProyectoFinalDint.vistamodelo
     {
         private string marca;
 
-        public RelayCommand AceptarButtonCommand { get; }
         public string Marca
         {
             get { return marca; }
@@ -23,9 +22,8 @@ namespace ProyectoFinalDint.vistamodelo
 
         public NuevaMarcaVM()
         {
-            AceptarButtonCommand = new RelayCommand(Aceptar);
         }
-        private void Aceptar()
+        public void Aceptar()
         {
             
             WeakReferenceMessenger.Default.Send(new NuevaMarcaMessage(Marca));

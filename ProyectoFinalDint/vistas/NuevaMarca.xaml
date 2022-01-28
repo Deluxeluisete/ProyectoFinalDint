@@ -14,7 +14,7 @@
             <TextBox/>
         </inputLayout:SfTextInputLayout>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-        <Button Margin="20,0" Width="100" IsDefault="True" Command="{Binding Path=AceptarButtonCommand}">Aceptar</Button>
+        <Button Margin="20,0" Width="100" IsDefault="True" Click="AceptarButton_Click">Aceptar</Button>
             <Button Width="100" IsCancel="True">Cancelar</Button>
         </StackPanel>
     </StackPanel>
