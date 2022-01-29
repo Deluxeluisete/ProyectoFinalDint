@@ -66,6 +66,19 @@ namespace ProyectoFinalDint.modelo
             set { SetProperty(ref tipo, value); }
         }
 
+        public Estacionamientos()
+        {
+        }
+        public Estacionamientos(int id_estacionamiento, int? id_vehiculo, string matricula, string entrada, string salida, double importe, string tipo)
+        {
+            Id_estacionamiento = id_estacionamiento;
+            Id_vehiculo = id_vehiculo;
+            Matricula = matricula;
+            Entrada = entrada;
+            Salida = salida;
+            Importe = importe;
+            Tipo = tipo;
+        }
 
     }
 }

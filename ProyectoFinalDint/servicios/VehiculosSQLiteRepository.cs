@@ -150,7 +150,7 @@ namespace ProyectoFinalDint.servicios
         }
         public bool UpdateVehiculo(Vehiculos vehiculo)
         {
-            if (FindById(vehiculo.Id_vehiculo) != null)
+            if (FindById(vehiculo.Id_vehiculo.Value) != null)
             {
                 this.conexion.Open();
                 comando = conexion.CreateCommand();
@@ -207,7 +207,7 @@ namespace ProyectoFinalDint.servicios
 
         public bool DeleteVehiculo(Vehiculos vehiculo)
         {
-            if (FindById(vehiculo.Id_vehiculo) != null)
+            if (FindById(vehiculo.Id_vehiculo.Value) != null)
             {
                 this.conexion.Open();
                 comando = conexion.CreateCommand();
