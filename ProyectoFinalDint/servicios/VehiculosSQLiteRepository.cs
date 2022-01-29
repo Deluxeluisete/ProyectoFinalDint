@@ -50,16 +50,15 @@ namespace ProyectoFinalDint.servicios
             this.conexion.Close();
         }
 
-        private Vehiculos VehiculosFactory(SqliteDataReader lector)
-        {
-            int id = lector.GetInt32(0);
-            int idCl = lector.GetInt32(1);
-            String mat = lector[2].ToString();
-            int idM = lector.GetInt32(3);
-            String mod = lector[4].ToString();
-            String tipo = lector[5].ToString();
-            return new Vehiculos(id, idCl, mat, idM, mod, tipo);
-        }
+        private Vehiculos VehiculosFactory(SqliteDataReader lector) => new Vehiculos(
+            lector.GetInt32(0),
+            lector.GetInt32(1),
+            lector[2].ToString(),
+            lector.IsDBNull(3) ? -1 : lector.GetInt32(3),
+            lector[4].ToString(),
+            lector[5].ToString()
+        );
+        
         public Vehiculos FindById(int id)
         {
             this.conexion.Open();

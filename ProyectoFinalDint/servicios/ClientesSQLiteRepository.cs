@@ -53,13 +53,13 @@ namespace ProyectoFinalDint.servicios
             this.conexion.Close();
         }
         private Clientes ClientesFactory(SqliteDataReader lector) => new Clientes(
-            int.Parse(lector[0].ToString()),
+            lector.GetInt32(0),
             lector[3].ToString(),
             lector[1].ToString(),
             lector[5].ToString(),
             lector[2].ToString(),
             lector[6].ToString(),
-            int.Parse(lector[4].ToString())
+            lector.IsDBNull(4) ? 0 : lector.GetInt32(4)
         );
         public Clientes FindById(int id)
         {
