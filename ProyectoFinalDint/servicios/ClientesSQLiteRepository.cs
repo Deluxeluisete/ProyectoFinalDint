@@ -52,17 +52,15 @@ namespace ProyectoFinalDint.servicios
             comando.ExecuteNonQuery();
             this.conexion.Close();
         }
-        private Clientes ClientesFactory(SqliteDataReader lector)
-        {
-            int id = int.Parse(lector[0].ToString());
-            String nombre = lector[1].ToString();
-            String doc = lector[2].ToString();
-            String s = lector[3].ToString();
-            int edad = int.Parse(lector[4].ToString());
-            String genero = lector[5].ToString();
-            String tlf = lector[6].ToString();
-            return new Clientes(id, s, nombre, genero, doc, tlf, edad);
-        }
+        private Clientes ClientesFactory(SqliteDataReader lector) => new Clientes(
+            int.Parse(lector[0].ToString()),
+            lector[3].ToString(),
+            lector[1].ToString(),
+            lector[5].ToString(),
+            lector[2].ToString(),
+            lector[6].ToString(),
+            int.Parse(lector[4].ToString())
+        );
         public Clientes FindById(int id)
         {
             this.conexion.Open();
@@ -169,7 +167,7 @@ namespace ProyectoFinalDint.servicios
                 comando.Parameters.Add("@ed", SqliteType.Integer);
                 comando.Parameters.Add("@gen", SqliteType.Text);
                 comando.Parameters.Add("@tel", SqliteType.Text);
-                comando.Parameters.Add("@id", SqliteType.Integer);
+                comando.Parameters.Add("@id", (SqliteType)1);
 
 
                 comando.Parameters["@nom"].Value = cliente.Nombre;

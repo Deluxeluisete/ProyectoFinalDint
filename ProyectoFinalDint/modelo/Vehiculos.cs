@@ -9,9 +9,9 @@ namespace ProyectoFinalDint.modelo
 {
     class Vehiculos : ObservableObject
     {
-        private int id_vehiculo;
+        private int? id_vehiculo;
 
-        public int Id_vehiculo
+        public int? Id_vehiculo
         {
             get { return id_vehiculo; }
             set { SetProperty(ref id_vehiculo,value); }
@@ -72,6 +72,13 @@ namespace ProyectoFinalDint.modelo
             Tipo = tipo;
         }
 
-
+        public Vehiculos(int id_cliente, string matricula, int id_marca, string modelo, string tipo)
+        {
+            Id_cliente = id_cliente;
+            Matricula = matricula;
+            Id_marca = id_marca;
+            Modelo = modelo;
+            Tipo = tipo;
+        }
     }
 } 

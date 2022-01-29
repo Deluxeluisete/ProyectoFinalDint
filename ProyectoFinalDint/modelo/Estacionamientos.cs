@@ -17,9 +17,9 @@ namespace ProyectoFinalDint.modelo
             set { SetProperty(ref id_estacionamiento, value); }
         }
 
-        private int id_vehiculo;
+        private int? id_vehiculo;
 
-        public int Id_vehiculo
+        public int? Id_vehiculo
         {
             get { return id_vehiculo; }
             set { SetProperty(ref id_vehiculo, value); }
