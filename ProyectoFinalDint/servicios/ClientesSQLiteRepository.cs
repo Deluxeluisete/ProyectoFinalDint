@@ -93,10 +93,7 @@ namespace ProyectoFinalDint.servicios
             SqliteDataReader lector = comando.ExecuteReader();
             if (lector.HasRows)
             {
-                if (lector.Read())
-                {
-                    return ClientesFactory(lector);
-                }
+                if (lector.Read()) return ClientesFactory(lector);
             }
             this.conexion.Close();
             lector.Close();
@@ -208,27 +205,6 @@ namespace ProyectoFinalDint.servicios
                 return false;
             }
         }
-        public bool DeleteCliente(Clientes cliente)
-        {
-            if (FindById(cliente.Id_cliente) != null)
-            {
-                this.conexion.Open();
-                comando = conexion.CreateCommand();
-
-                comando.CommandText = "DELETE FROM clientes WHERE id_cliente = @id";
-
-                comando.Parameters.Add("@id", SqliteType.Integer);
-
-                comando.Parameters["@id"].Value = cliente.Id_cliente;
-
-                comando.ExecuteNonQuery();
-                this.conexion.Close();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public bool DeleteCliente(Clientes cliente) => DeleteClienteById(cliente.Id_cliente);
     }
 }

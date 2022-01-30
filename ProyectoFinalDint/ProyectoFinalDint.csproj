@@ -129,6 +129,7 @@
     <Compile Include="servicios\ClientesSQLiteRepository.cs" />
     <Compile Include="servicios\DatabaseService.cs" />
     <Compile Include="servicios\EstacionamientosSQLiteRepository.cs" />
+    <Compile Include="servicios\MarcaSQLiteRepository.cs" />
     <Compile Include="servicios\MessageService.cs" />
     <Compile Include="servicios\NavigationService.cs" />
     <Compile Include="servicios\VehiculosSQLiteRepository.cs" />
