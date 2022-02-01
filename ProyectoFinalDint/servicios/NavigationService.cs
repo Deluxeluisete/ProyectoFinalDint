@@ -16,6 +16,7 @@ namespace ProyectoFinalDint.servicios
             return dialogo.ShowDialog();
         }
         internal UserControl GestionarClientesUC() => new GestionarClientesUserControl();
+        internal UserControl GestionarVehiculosUC() => new GestionarVehiculosUserControl();
 
     }
 }

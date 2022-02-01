@@ -2,6 +2,7 @@
 using ProyectoFinalDint.modelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,11 +84,11 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
-        public List<Marcas> FindAll()
+        public ObservableCollection<Marcas> FindAll()
         {
             this.conexion.Open();
 
-            List<Marcas> marcas = new List<Marcas>();
+            ObservableCollection<Marcas> marcas = new ObservableCollection<Marcas>();
 
             comando = conexion.CreateCommand();
             comando.CommandText = "SELECT * FROM marcas";

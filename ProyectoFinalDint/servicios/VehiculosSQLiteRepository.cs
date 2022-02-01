@@ -2,6 +2,7 @@
 using ProyectoFinalDint.modelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,11 +101,11 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
-        public List<Vehiculos> FindAll()
+        public ObservableCollection<Vehiculos> FindAll()
         {
             this.conexion.Open();
 
-            List<Vehiculos> vehiculos = new List<Vehiculos>();
+            ObservableCollection<Vehiculos> vehiculos = new ObservableCollection<Vehiculos>();
 
             comando = conexion.CreateCommand();
             comando.CommandText = "SELECT * FROM vehiculos";

@@ -13,15 +13,15 @@ namespace ProyectoFinalDint.vistamodelo
 {
     class GestionarClientesVM : ObservableObject
     {
-        private ObservableCollection<Clientes> clientes;
-        public ObservableCollection<Clientes> Clientes
+        private ObservableCollection<Clientes> listaClientes;
+        public ObservableCollection<Clientes> ListaClientes
         {
-            get => clientes;
-            set => SetProperty(ref clientes, value);
+            get => listaClientes;
+            set => SetProperty(ref listaClientes, value);
         }
         public GestionarClientesVM()
         {
-            this.Clientes = new ClientesSQLiteRepository().FindAll();
+            this.ListaClientes = new ClientesSQLiteRepository().FindAll();
             //Console.WriteLine(Clientes[0].Nombre);
         }
     }

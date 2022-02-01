@@ -23,12 +23,19 @@ namespace ProyectoFinalDint
 
         public RelayCommand NuevaMarcaButtonCommand { get; }
         public RelayCommand GestionaClientesCommand { get; }
+        public RelayCommand GestionaVehiculosCommand { get; }
 
         public MainWindowVM()
         {
             servicioNavegacion = new NavigationService();
             NuevaMarcaButtonCommand = new RelayCommand(AbrirDialogoNuevaMarca);
             GestionaClientesCommand = new RelayCommand(MuestraGestionaClientesCommand);
+            GestionaVehiculosCommand = new RelayCommand(MuestraGestionaVehiculosCommand);
+        }
+
+        private void MuestraGestionaVehiculosCommand()
+        {
+            this.UserControl = servicioNavegacion.GestionarVehiculosUC();
         }
 
         private void MuestraGestionaClientesCommand()

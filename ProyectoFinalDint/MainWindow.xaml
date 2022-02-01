@@ -22,7 +22,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <syncfusion:MenuItemAdv Header="Gestionar Clientes"  Command="{Binding Path=GestionaClientesCommand}" Grid.Column="0" />
-                        <syncfusion:MenuItemAdv Header="Gestionar Vehiculos"  Command="{Binding Path=AbrirGestionaVehiculos}" Grid.Column="1" />
+                        <syncfusion:MenuItemAdv Header="Gestionar Vehiculos"  Command="{Binding Path=GestionaVehiculosCommand}" Grid.Column="1" />
                         <syncfusion:MenuItemAdv Header="Gestionar Estacionamiento" Command="{Binding Path=AbrirGestionEstacionamiento}" Grid.Column="2"/>
                     </Grid>
                     <syncfusion:MenuItemAdv/>

@@ -91,6 +91,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -104,6 +105,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -134,10 +136,14 @@
     <Compile Include="servicios\NavigationService.cs" />
     <Compile Include="servicios\VehiculosSQLiteRepository.cs" />
     <Compile Include="vistamodelo\GestionarClientesVM.cs" />
+    <Compile Include="vistamodelo\GestionarVehiculosVM.cs" />
     <Compile Include="vistamodelo\NuevaMarcaVM.cs" />
     <Compile Include="vistamodelo\VistaModelo.cs" />
     <Compile Include="vistas\GestionarClientesUserControl.xaml.cs">
       <DependentUpon>GestionarClientesUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\GestionarVehiculosUserControl.xaml.cs">
+      <DependentUpon>GestionarVehiculosUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="vistas\NuevaMarca.xaml.cs">
       <DependentUpon>NuevaMarca.xaml</DependentUpon>
@@ -156,6 +162,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="vistas\GestionarClientesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\GestionarVehiculosUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

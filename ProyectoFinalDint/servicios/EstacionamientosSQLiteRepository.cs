@@ -2,6 +2,7 @@
 using ProyectoFinalDint.modelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,11 +108,11 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
-        public List<Estacionamientos> FindAll()
+        public ObservableCollection<Estacionamientos> FindAll()
         {
             this.conexion.Open();
 
-            List<Estacionamientos> estacionamientos = new List<Estacionamientos>();
+            ObservableCollection<Estacionamientos> estacionamientos = new ObservableCollection<Estacionamientos>();
 
             comando = conexion.CreateCommand();
             comando.CommandText = "SELECT * FROM estacionamientos";
