@@ -17,6 +17,7 @@ namespace ProyectoFinalDint.servicios
         }
         internal UserControl GestionarClientesUC() => new GestionarClientesUserControl();
         internal UserControl GestionarVehiculosUC() => new GestionarVehiculosUserControl();
+        internal UserControl GestionarEstacionamientosUC() => new GestionarAparcamientosUserControl();
 
     }
 }

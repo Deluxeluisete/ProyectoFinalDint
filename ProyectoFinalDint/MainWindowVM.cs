@@ -24,6 +24,7 @@ namespace ProyectoFinalDint
         public RelayCommand NuevaMarcaButtonCommand { get; }
         public RelayCommand GestionaClientesCommand { get; }
         public RelayCommand GestionaVehiculosCommand { get; }
+        public RelayCommand GestionaEstacionamientosCommand { get; }
 
         public MainWindowVM()
         {
@@ -31,6 +32,12 @@ namespace ProyectoFinalDint
             NuevaMarcaButtonCommand = new RelayCommand(AbrirDialogoNuevaMarca);
             GestionaClientesCommand = new RelayCommand(MuestraGestionaClientesCommand);
             GestionaVehiculosCommand = new RelayCommand(MuestraGestionaVehiculosCommand);
+            GestionaEstacionamientosCommand = new RelayCommand(MuestraGestionaEstacionamientosCommand);
+        }
+
+        private void MuestraGestionaEstacionamientosCommand()
+        {
+            this.UserControl = servicioNavegacion.GestionarEstacionamientosUC();
         }
 
         private void MuestraGestionaVehiculosCommand()

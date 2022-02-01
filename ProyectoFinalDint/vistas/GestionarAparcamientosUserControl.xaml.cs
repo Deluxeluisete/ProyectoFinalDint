@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinalDint.vistamodelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProyectoFinalDint
+namespace ProyectoFinalDint.vistas
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para GestionarAparcamientosUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GestionarAparcamientosUserControl : UserControl
     {
-        public MainWindow()
+        public GestionarAparcamientosUserControl()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowVM();
+            this.DataContext = new GestionarEstacionamientosVM();
         }
-
     }
 }
