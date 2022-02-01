@@ -23,6 +23,8 @@ namespace ProyectoFinalDint.vistas
         public GestionarClientesUserControl()
         {
             InitializeComponent();
+        
+            
         }
     }
 }
