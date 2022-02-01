@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ProyectoFinalDint.servicios
 {
@@ -14,5 +15,7 @@ namespace ProyectoFinalDint.servicios
             NuevaMarca dialogo = new NuevaMarca();
             return dialogo.ShowDialog();
         }
+        internal UserControl GestionarClientesUC() => new GestionarClientesUserControl();
+
     }
 }

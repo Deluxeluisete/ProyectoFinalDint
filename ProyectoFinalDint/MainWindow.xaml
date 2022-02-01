@@ -21,7 +21,7 @@
                             <ColumnDefinition ></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <syncfusion:MenuItemAdv Header="Gestionar Clientes"  Command="{Binding Path=AbrirGestionaClientes}" Grid.Column="0" />
+                        <syncfusion:MenuItemAdv Header="Gestionar Clientes"  Command="{Binding Path=GestionaClientesCommand}" Grid.Column="0" />
                         <syncfusion:MenuItemAdv Header="Gestionar Vehiculos"  Command="{Binding Path=AbrirGestionaVehiculos}" Grid.Column="1" />
                         <syncfusion:MenuItemAdv Header="Gestionar Estacionamiento" Command="{Binding Path=AbrirGestionEstacionamiento}" Grid.Column="2"/>
                     </Grid>
@@ -29,7 +29,7 @@
                 </syncfusion:MenuAdv>
             </StackPanel>
             <Border BorderBrush="Black" BorderThickness="2">
-                <ContentControl Content="{Binding Path=ContenidoVentana}"></ContentControl>
+                <ContentControl Content="{Binding Path=UserControl}"></ContentControl>
             </Border>
         </DockPanel>
     </Grid>

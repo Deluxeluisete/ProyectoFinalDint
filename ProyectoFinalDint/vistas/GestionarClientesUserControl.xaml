@@ -6,7 +6,32 @@
              xmlns:local="clr-namespace:ProyectoFinalDint.vistas"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <ListBox 
+            x:Name="lista"
+            ItemsSource="{Binding Path=Clientes}">
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel/>
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+        <ListBox.ItemTemplate>
+            <DataTemplate >
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Margin="10">
+                    <Run Text="{Binding Path=Nombre}"/>
+                    <Run Text=" - "/>
+                    <Run Text="{Binding Path=Documento}"/>
+                    <Run Text=" - "/>
+                    <Run Text="{Binding Path=Edad}"/>
+ <!-- <Run Text=" : " Foreground="White"/>
+  <Run Text=" "/>
+  <Run Text=" " Foreground="White"/>
+  <Run Text=" "/>
+  <Run Text=" -->
+                </TextBlock>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+
+    </ListBox>
 </UserControl>
