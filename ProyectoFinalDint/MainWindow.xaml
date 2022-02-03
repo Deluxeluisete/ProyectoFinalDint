@@ -11,7 +11,7 @@
     <Grid>
         <!--<Button Command="{Binding NuevaMarcaButtonCommand}">-->
         <!--</Button>-->
-        <DockPanel >
+        <DockPanel>
             <StackPanel DockPanel.Dock="Top">
 
                 <syncfusion:MenuAdv Height="30" Width="auto" VerticalAlignment="Top">
