@@ -8,10 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-
     <StackPanel>
-
-        <syncfusion:SfDataGrid Height="100"/>
+        <TextBlock>Hay cosas</TextBlock>
+        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaBinding}" ColumnSizer="Star"/>
 
     </StackPanel>
 

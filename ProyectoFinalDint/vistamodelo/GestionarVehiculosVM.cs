@@ -20,7 +20,7 @@ namespace ProyectoFinalDint.vistamodelo
         }
         public GestionarVehiculosVM()
         {
-            this.ListaVehiculos = new SQLiteRepositoryVehiculos().FindAll();
+            //this.ListaVehiculos = new SQLiteRepositoryVehiculos().FindAll();
         }
     }
 }
