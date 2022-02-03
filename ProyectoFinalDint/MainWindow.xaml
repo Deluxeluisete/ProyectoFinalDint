@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinalDint"
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="ProyectoFinalDint.MainWindow"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" d:DataContext="{d:DesignInstance Type=local:MainWindowVM}" x:Class="ProyectoFinalDint.MainWindow"
         mc:Ignorable="d"
         Icon="assets/carParking.ico"
         Title="Aplicación de gestión del parking" Height="450" Width="800">
@@ -21,16 +21,16 @@
                             <ColumnDefinition ></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <syncfusion:MenuItemAdv Header="Gestionar Clientes"  Command="{Binding Path=AbrirGestionaClientes}" Grid.Column="0" />
-                        <syncfusion:MenuItemAdv Header="Gestionar Vehiculos"  Command="{Binding Path=AbrirGestionaVehiculos}" Grid.Column="1" />
-                        <syncfusion:MenuItemAdv Header="Gestionar Estacionamiento" Command="{Binding Path=AbrirGestionEstacionamiento}" Grid.Column="2"/>
+                        <syncfusion:MenuItemAdv Header="Gestionar Clientes"  Command="{Binding Path=GestionaClientesCommand}" Grid.Column="0" />
+                        <syncfusion:MenuItemAdv Header="Gestionar Vehiculos"  Command="{Binding Path=GestionaVehiculosCommand}" Grid.Column="1" />
+                        <syncfusion:MenuItemAdv Header="Gestionar Estacionamiento" Command="{Binding Path=GestionaEstacionamientosCommand}" Grid.Column="2"/>
                     </Grid>
 					
                     <syncfusion:MenuItemAdv/>
                 </syncfusion:MenuAdv>
             </StackPanel>
             <Border BorderBrush="Black" BorderThickness="2">
-                <ContentControl Content="{Binding Path=ContenidoVentana}"></ContentControl>
+                <ContentControl Content="{Binding Path=UserControl}"></ContentControl>
             </Border>
         </DockPanel>
     </Grid>

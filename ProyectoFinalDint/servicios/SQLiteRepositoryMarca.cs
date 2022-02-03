@@ -2,23 +2,24 @@
 using ProyectoFinalDint.modelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProyectoFinalDint.servicios
 {
-    class MarcaSQLiteRepository
+    class SQLiteRepositoryMarca
     {
         private String src = "";
         private String nombreDB = "parking.db";
         private SqliteConnection conexion;
         private SqliteCommand comando;
-        public MarcaSQLiteRepository()
+        public SQLiteRepositoryMarca()
         {
             this.conexion = new SqliteConnection("Data Source=" + this.nombreDB);
         }
-        public MarcaSQLiteRepository(String nombredb, String source)
+        public SQLiteRepositoryMarca(String nombredb, String source)
         {
             this.nombreDB = nombredb;
             this.src = source;
@@ -83,11 +84,11 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
-        public List<Marcas> FindAll()
+        public ObservableCollection<Marcas> FindAll()
         {
             this.conexion.Open();
 
-            List<Marcas> marcas = new List<Marcas>();
+            ObservableCollection<Marcas> marcas = new ObservableCollection<Marcas>();
 
             comando = conexion.CreateCommand();
             comando.CommandText = "SELECT * FROM marcas";

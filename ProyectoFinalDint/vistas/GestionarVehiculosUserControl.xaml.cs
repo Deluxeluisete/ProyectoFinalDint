@@ -17,15 +17,14 @@ using System.Windows.Shapes;
 namespace ProyectoFinalDint.vistas
 {
     /// <summary>
-    /// Lógica de interacción para GestionarClientesUserControl.xaml
+    /// Lógica de interacción para GestionarVehiculosUserControl.xaml
     /// </summary>
-    public partial class GestionarClientesUserControl : UserControl
+    public partial class GestionarVehiculosUserControl : UserControl
     {
-        public GestionarClientesUserControl()
+        public GestionarVehiculosUserControl()
         {
             InitializeComponent();
-        
-            
+            this.DataContext = new GestionarVehiculosVM();
         }
     }
 }

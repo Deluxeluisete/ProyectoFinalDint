@@ -22,10 +22,10 @@ namespace ProyectoFinalDint.vistamodelo
 
         public NuevaMarcaVM()
         {
+
         }
         public void Aceptar()
         {
-            
             WeakReferenceMessenger.Default.Send(new NuevaMarcaMessage(Marca));
         }
     }
