@@ -141,12 +141,15 @@
     <Compile Include="modelo\Marcas.cs" />
     <Compile Include="modelo\OrderInfo.cs" />
     <Compile Include="modelo\Vehiculos.cs" />
-    <Compile Include="servicios\ClientesSQLiteRepository.cs" />
+    <Compile Include="servicios\SQLiteRepositoryClientes.cs" />
     <Compile Include="servicios\SQLiteRepositoryEstacionamientos.cs" />
     <Compile Include="servicios\SQLiteRepositoryMarca.cs" />
     <Compile Include="servicios\MessageService.cs" />
     <Compile Include="servicios\NavigationService.cs" />
     <Compile Include="servicios\SQLiteRepositoryVehiculos.cs" />
+    <Compile Include="vistamodelo\GestionarClientesVM.cs" />
+    <Compile Include="vistamodelo\GestionarEstacionamientosVM.cs" />
+    <Compile Include="vistamodelo\GestionarVehiculosVM.cs" />
     <Compile Include="vistamodelo\NuevaMarcaVM.cs" />
     <Compile Include="vistas\GestionarAparcamientosUserControl.xaml.cs">
       <DependentUpon>GestionarAparcamientosUserControl.xaml</DependentUpon>
