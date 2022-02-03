@@ -25,6 +25,7 @@
                         <syncfusion:MenuItemAdv Header="Gestionar Vehiculos"  Command="{Binding Path=GestionaVehiculosCommand}" Grid.Column="1" />
                         <syncfusion:MenuItemAdv Header="Gestionar Estacionamiento" Command="{Binding Path=GestionaEstacionamientosCommand}" Grid.Column="2"/>
                     </Grid>
+					
                     <syncfusion:MenuItemAdv/>
                 </syncfusion:MenuAdv>
             </StackPanel>
