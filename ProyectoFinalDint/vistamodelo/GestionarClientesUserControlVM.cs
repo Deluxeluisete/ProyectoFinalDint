@@ -1,4 +1,6 @@
-﻿using ProyectoFinalDint.modelo;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using ProyectoFinalDint.modelo;
+using ProyectoFinalDint.servicios;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,33 +10,36 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalDint.vistamodelo
 {
-    class GestionarClientesUserControlVM
+    class GestionarClientesUserControlVM : ObservableObject
     {
-        private ObservableCollection<OrderInfo> _orders;
-        public ObservableCollection<OrderInfo> Orders
+        private ObservableCollection<Estacionamientos> listaEstacionamientos;
+        public ObservableCollection<Estacionamientos> ListaEstacionamientos
         {
-            get { return _orders; }
-            set { _orders = value; }
+            get => listaEstacionamientos;
+            set => SetProperty(ref listaEstacionamientos, value);
         }
 
-        public GestionarClientesUserControlVM()
+        private ObservableCollection<Estacionamientos> listaBinding;
+
+        public ObservableCollection<Estacionamientos> ListaBinding
         {
-            _orders = new ObservableCollection<OrderInfo>();
-            this.GenerateOrders();
+            get { return listaBinding; }
+            set { SetProperty(ref listaBinding, value); }
         }
 
-        private void GenerateOrders()
+        public void GestionarEstacionamientosVM()
         {
-            _orders.Add(new OrderInfo(1001, "Maria Anders", "Germany", "ALFKI", "Berlin"));
-            _orders.Add(new OrderInfo(1002, "Ana Trujilo", "Mexico", "ANATR", "Mexico D.F."));
-            _orders.Add(new OrderInfo(1003, "Antonio Moreno", "Mexico", "ANTON", "Mexico D.F."));
-            _orders.Add(new OrderInfo(1004, "Thomas Hardy", "UK", "AROUT", "London"));
-            _orders.Add(new OrderInfo(1005, "Christina Berglund", "Sweden", "BERGS", "Lula"));
-            _orders.Add(new OrderInfo(1006, "Hanna Moos", "Germany", "BLAUS", "Mannheim"));
-            _orders.Add(new OrderInfo(1007, "Frederique Citeaux", "France", "BLONP", "Strasbourg"));
-            _orders.Add(new OrderInfo(1008, "Martin Sommer", "Spain", "BOLID", "Madrid"));
-            _orders.Add(new OrderInfo(1009, "Laurence Lebihan", "France", "BONAP", "Marseille"));
-            _orders.Add(new OrderInfo(1010, "Elizabeth Lincoln", "Canada", "BOTTM", "Tsawassen"));
+            this.ListaBinding = new ObservableCollection<Estacionamientos>();
+            rellenarListaBinding();
+            this.ListaEstacionamientos = new SQLiteRepositoryEstacionamientos().FindAll();
+        }
+
+
+        public void rellenarListaBinding()
+        {
+            listaBinding.Add(new Estacionamientos(1, 1, "aaaa", "entrada", "salida", 3.5, "coche"));
+            listaBinding.Add(new Estacionamientos(2, 12, "bbbbb", "entrada", "salida", 3.5, "coche"));
+            listaBinding.Add(new Estacionamientos(3, 15, "cccc", "entrada", "salida", 3.5, "moto"));
         }
     }
 }
