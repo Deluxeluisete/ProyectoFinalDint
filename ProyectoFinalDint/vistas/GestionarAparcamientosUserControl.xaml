@@ -1,31 +1,20 @@
-﻿<UserControl x:Class="ProyectoFinalDint.vistas.GestionarAparcamientosUserControl"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProyectoFinalDint.vistas"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="ProyectoFinalDint.vistas.GestionarAparcamientosUserControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ListBox 
-        x:Name="lista"
-        ItemsSource="{Binding Path=ListaEstacionamientos}" Width="799">
-        <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-                <StackPanel/>
-            </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-            <DataTemplate >
-                <TextBlock
-                HorizontalAlignment="Left"
-                Margin="10">
-                <Run Text="{Binding Path=Id_estacionamiento}"/>
-                <Run Text=" - "/>
-                <Run Text="{Binding Path=Matricula}"/>
-                <Run Text=" - "/>
-                <Run Text="{Binding Path=Entrada}"/>
-                </TextBlock>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+
+
+    <StackPanel>
+
+        <syncfusion:SfDataGrid Height="100"/>
+
+    </StackPanel>
+
+
+
 </UserControl>
