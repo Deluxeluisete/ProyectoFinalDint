@@ -124,11 +124,11 @@ namespace ProyectoFinalDint.servicios
                 {
                     estacionamientos.Add(EstacionamientosFactory(lector));
                 }
-                return estacionamientos;
+                //return estacionamientos;
             }
             this.conexion.Close();
             lector.Close();
-            return null;
+            return estacionamientos;
         }
         public bool UpdateEstacionamientoMatriculaHoraEntrada(Vehiculos vehiculo, DateTime fhEntrada, int idPlaza)
         {
