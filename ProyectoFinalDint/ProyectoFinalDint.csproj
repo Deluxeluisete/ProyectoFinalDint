@@ -160,7 +160,6 @@
     <Compile Include="vistas\NuevaMarca.xaml.cs">
       <DependentUpon>NuevaMarca.xaml</DependentUpon>
     </Compile>
-    <Compile Include="vistas\Vista.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -234,7 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\carParking.ico" />
-    <Content Include="assets\descarga.jfif" />
     <Resource Include="assets\mas.ico" />
     <Resource Include="assets\ParkingIco.ico" />
   </ItemGroup>
