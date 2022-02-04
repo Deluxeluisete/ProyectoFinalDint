@@ -13,8 +13,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Height="200">
-            <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaBinding}" ColumnSizer="Star"/>
+        <StackPanel Grid.Row="0" >
+            <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaEstacionamientos}" ColumnSizer="Star" AllowFiltering="True"/>
         </StackPanel>
         <Grid Grid.Row="1"  Background="Aquamarine">
             <Grid.ColumnDefinitions>
