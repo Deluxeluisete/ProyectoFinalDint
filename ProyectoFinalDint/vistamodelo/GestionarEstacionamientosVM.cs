@@ -49,7 +49,7 @@ namespace ProyectoFinalDint.vistamodelo
 
         private void AñadirEstacionamiento()
         {
-            ServicioSQLite.Inserta(new Estacionamientos(5,8,"1234 GGE", "03/02/2022 - 12:34", "03/02/2022 - 14:23", 5.9, "coche"));
+            ServicioSQLite.Inserta(new Estacionamientos(5,null,"1234 GGE", "03/02/2022 - 12:34", "03/02/2022 - 14:23", 5.9, "coche"));
         }
 
         public void rellenarListaBinding()

@@ -37,7 +37,7 @@ namespace ProyectoFinalDint.servicios
             comando.CommandText = "SELECT COUNT(*) FROM estacionamientos";
             int resultado = int.Parse(comando.ExecuteScalar().ToString());
 
-            //fh = fecha y hora
+            //fh = fecha y hora int id_estacionamiento, int? id_vehiculo, string matricula, string entrada, string salida, double importe, string tipo
             comando.CommandText = "INSERT INTO estacionamientos VALUES (@id,@idV,@mat,@fhentrada,@fhsalida,@imp,@tipo)";
             comando.Parameters.Add("@id", SqliteType.Integer);
             comando.Parameters.Add("@idV", SqliteType.Integer);
@@ -47,8 +47,8 @@ namespace ProyectoFinalDint.servicios
             comando.Parameters.Add("@imp", SqliteType.Real);
             comando.Parameters.Add("@tipo", SqliteType.Text);
 
-            comando.Parameters["@id"].Value = resultado;
-            comando.Parameters["@idV"].Value = estacionamientos.Id_vehiculo != null ? estacionamientos.Id_vehiculo : -1;
+            comando.Parameters["@id"].Value = resultado+1;
+            comando.Parameters["@idV"].Value = estacionamientos.Id_vehiculo != null ? estacionamientos.Id_vehiculo : 0;
             comando.Parameters["@mat"].Value = estacionamientos.Matricula;
             comando.Parameters["@fhentrada"].Value = estacionamientos.Entrada;
             comando.Parameters["@fhsalida"].Value = estacionamientos.Salida;
