@@ -6,69 +6,17 @@
              xmlns:local="clr-namespace:ProyectoFinalDint.vistas"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!-- Id_vehiculo = id_vehiculo;
-            Id_cliente = id_cliente;
-            Matricula = matricula;
-            Id_marca = id_marca;
-            Modelo = modelo;
-            Tipo = tipo; -->
-    <DockPanel>
-        <StackPanel
-            DockPanel.Dock="Right"
-            Width="300"
-            Orientation="Vertical">
-
-            <StackPanel
-                Margin="15"
-                Orientation="Vertical">
-                <StackPanel
-                    Margin="10,5,10,5"
-                    Orientation="Horizontal">
-                    <Label/>
-                    <TextBlock
-                        x:Name="textoPropietario"/>
-                </StackPanel>
-                <StackPanel
-                    Margin="10,5,10,5"
-                    Orientation="Horizontal">
-                    <Label/>
-                    <TextBlock
-                    x:Name="textoMatricula"/>
-                </StackPanel>
-                <StackPanel
-                    Margin="10,5,10,5"
-                    Orientation="Horizontal">
-                    <Label/>
-                    <TextBlock
-                    x:Name="textoMarca"/>
-                </StackPanel>
-                <StackPanel
-                    Margin="10,5,10,5"
-                    Orientation="Horizontal">
-                    <Label/>
-                    <TextBlock
-                    x:Name="textoModelo"/>
-                </StackPanel>
-                <StackPanel
-                    Margin="10,5,10,5"
-                    Orientation="Horizontal">
-                    <Label/>
-                    <TextBlock
-                    x:Name="textoTipo"/>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
-        <ListBox 
+    <ListBox 
         x:Name="lista"
         ItemsSource="{Binding Path=ListaVehiculos}" Width="799">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate >
-                    <TextBlock
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel/>
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+        <ListBox.ItemTemplate>
+            <DataTemplate >
+                <TextBlock
                 HorizontalAlignment="Left"
                 Margin="10">
                 <Run Text="{Binding Path=Matricula}"/>
@@ -76,9 +24,8 @@
                 <Run Text="{Binding Path=Modelo}"/>
                 <Run Text=" - "/>
                 <Run Text="{Binding Path=Tipo}"/>
-                    </TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </DockPanel>
+                </TextBlock>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>

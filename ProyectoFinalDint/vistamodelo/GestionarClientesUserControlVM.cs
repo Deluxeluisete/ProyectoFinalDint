@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using ProyectoFinalDint.modelo;
 using ProyectoFinalDint.servicios;
 using System;
@@ -12,6 +13,8 @@ namespace ProyectoFinalDint.vistamodelo
 {
     class GestionarClientesUserControlVM : ObservableObject
     {
+        private SQLiteRepositoryEstacionamientos ServicioSQLite;
+
         private ObservableCollection<Estacionamientos> listaEstacionamientos;
         public ObservableCollection<Estacionamientos> ListaEstacionamientos
         {
@@ -27,13 +30,27 @@ namespace ProyectoFinalDint.vistamodelo
             set { SetProperty(ref listaBinding, value); }
         }
 
-        public void GestionarEstacionamientosVM()
+        public RelayCommand AñadirEstacionamientoCommand { get; }
+        public RelayCommand FindAllCommand { get; }
+        public GestionarClientesUserControlVM()
         {
+            ServicioSQLite = new SQLiteRepositoryEstacionamientos();
             this.ListaBinding = new ObservableCollection<Estacionamientos>();
             rellenarListaBinding();
-            this.ListaEstacionamientos = new SQLiteRepositoryEstacionamientos().FindAll();
+            this.ListaEstacionamientos = ServicioSQLite.FindAll();
+            AñadirEstacionamientoCommand = new RelayCommand(AñadirEstacionamiento);
+            FindAllCommand = new RelayCommand(FindAll);
         }
 
+        private void FindAll()
+        {
+            ListaEstacionamientos = ServicioSQLite.FindAll();
+        }
+
+        private void AñadirEstacionamiento()
+        {
+            ServicioSQLite.Inserta(new Estacionamientos(5, 8, "1234 GGE", "03/02/2022 - 12:34", "03/02/2022 - 14:23", 5.9, "coche"));
+        }
 
         public void rellenarListaBinding()
         {
@@ -41,6 +58,7 @@ namespace ProyectoFinalDint.vistamodelo
             listaBinding.Add(new Estacionamientos(2, 12, "bbbbb", "entrada", "salida", 3.5, "coche"));
             listaBinding.Add(new Estacionamientos(3, 15, "cccc", "entrada", "salida", 3.5, "moto"));
         }
+
+
     }
 }
-
