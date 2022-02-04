@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalDint.servicios
 {
-    class SQLiteRepositoryClientes
+    class ClientesSQLiteRepository
     {
         private String src = "";
         private String nombreDB = "parking.db";
         private SqliteConnection conexion;
         private SqliteCommand comando;
-        public SQLiteRepositoryClientes()
+        public ClientesSQLiteRepository()
         {
             this.conexion = new SqliteConnection("Data Source=" + this.nombreDB);
         }
-        public SQLiteRepositoryClientes(String nombredb, String source)
+        public ClientesSQLiteRepository(String nombredb, String source)
         {
             this.nombreDB = nombredb;
             this.src = source;
