@@ -16,7 +16,7 @@ namespace ProyectoFinalDint.vistamodelo
       
         public GestionarClientesVM()
         {
-            this.ListaClientes = new SQLiteRepositoryClientes().FindAll();
+            //this.ListaClientes = new SQLiteRepositoryClientes().FindAll();
             //Console.WriteLine(Clientes[0].Nombre);
         }
     }
