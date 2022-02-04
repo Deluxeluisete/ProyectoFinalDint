@@ -24,8 +24,8 @@ namespace ProyectoFinalDint.vistas
         public GestionarClientesUserControl()
         {
             InitializeComponent();
-        
-            
+            this.DataContext = new GestionarClientesUserControlVM();
+
         }
     }
 }
