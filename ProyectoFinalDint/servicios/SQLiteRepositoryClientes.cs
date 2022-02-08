@@ -116,11 +116,11 @@ namespace ProyectoFinalDint.servicios
                 {
                     clientes.Add(ClientesFactory(lector));
                 }
-                return clientes;
+           
             }
             this.conexion.Close();
             lector.Close();
-            return null;
+            return clientes;
         }
         public bool UpdateClienteEdadGenero(int edad, String genero, int id)
         {
@@ -145,7 +145,10 @@ namespace ProyectoFinalDint.servicios
                 this.conexion.Close();
                 return true;
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
         public bool UpdateCliente(Clientes cliente)
         {

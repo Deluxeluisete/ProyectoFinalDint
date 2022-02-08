@@ -147,7 +147,6 @@
     <Compile Include="servicios\MessageService.cs" />
     <Compile Include="servicios\NavigationService.cs" />
     <Compile Include="servicios\SQLiteRepositoryVehiculos.cs" />
-    <Compile Include="vistamodelo\GestionarClientesUserControlVM.cs" />
     <Compile Include="vistamodelo\GestionarClientesVM.cs" />
     <Compile Include="vistamodelo\GestionarEstacionamientosVM.cs" />
     <Compile Include="vistamodelo\GestionarVehiculosVM.cs" />
