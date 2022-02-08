@@ -13,50 +13,52 @@ namespace ProyectoFinalDint.vistamodelo
 {
     class GestionarClientesUserControlVM : ObservableObject
     {
-        private SQLiteRepositoryEstacionamientos ServicioSQLite;
+        private SQLiteRepositoryClientes ServicioSQLite;
 
-        private ObservableCollection<Estacionamientos> listaEstacionamientos;
-        public ObservableCollection<Estacionamientos> ListaEstacionamientos
+        private ObservableCollection<Clientes> listaClientes;
+        public ObservableCollection<Clientes> ListaClientes
         {
-            get => listaEstacionamientos;
-            set => SetProperty(ref listaEstacionamientos, value);
+            get => listaClientes;
+            set => SetProperty(ref listaClientes, value);
         }
 
-        private ObservableCollection<Estacionamientos> listaBinding;
+        private ObservableCollection<Clientes> listaBinding;
 
-        public ObservableCollection<Estacionamientos> ListaBinding
+        public ObservableCollection<Clientes> ListaBinding
         {
             get { return listaBinding; }
             set { SetProperty(ref listaBinding, value); }
         }
 
-        public RelayCommand AñadirEstacionamientoCommand { get; }
+        public RelayCommand AñadirClienteCommand { get; }
         public RelayCommand FindAllCommand { get; }
         public GestionarClientesUserControlVM()
         {
-            ServicioSQLite = new SQLiteRepositoryEstacionamientos();
-            this.ListaBinding = new ObservableCollection<Estacionamientos>();
+            ServicioSQLite = new SQLiteRepositoryClientes();
+            this.ListaBinding = new ObservableCollection<Clientes>();
             rellenarListaBinding();
-            this.ListaEstacionamientos = ServicioSQLite.FindAll();
-            AñadirEstacionamientoCommand = new RelayCommand(AñadirEstacionamiento);
+            this.ListaClientes = ServicioSQLite.FindAll();
+            AñadirClienteCommand = new RelayCommand(AñadirCliente);
             FindAllCommand = new RelayCommand(FindAll);
         }
 
         private void FindAll()
         {
-            ListaEstacionamientos = ServicioSQLite.FindAll();
+            ListaClientes = ServicioSQLite.FindAll();
         }
 
-        private void AñadirEstacionamiento()
+        private void AñadirCliente()
         {
-            ServicioSQLite.Inserta(new Estacionamientos(5, 8, "1234 GGE", "03/02/2022 - 12:34", "03/02/2022 - 14:23", 5.9, "coche"));
+            ServicioSQLite.Inserta(new Clientes(1, "ssss", "aaaa", "entrada", "salida", "ddddd", 6));
         }
 
         public void rellenarListaBinding()
         {
-            listaBinding.Add(new Estacionamientos(1, 1, "aaaa", "entrada", "salida", 3.5, "coche"));
-            listaBinding.Add(new Estacionamientos(2, 12, "bbbbb", "entrada", "salida", 3.5, "coche"));
-            listaBinding.Add(new Estacionamientos(3, 15, "cccc", "entrada", "salida", 3.5, "moto"));
+            listaBinding.Add(new Clientes(1, "ssss", "aaaa", "entrada", "salida", "ddddd", 6));
+            listaBinding.Add(new Clientes(1, "ssss", "aaaa", "entrada", "salida", "ddddd", 6));
+            listaBinding.Add(new Clientes(1, "ssss", "aaaa", "entrada", "salida", "ddddd", 6));
+            listaBinding.Add(new Clientes(1, "ssss", "aaaa", "entrada", "salida", "ddddd", 6));
+          
         }
 
 
