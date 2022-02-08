@@ -14,13 +14,13 @@
         </Style>
     </UserControl.Resources>
     
-    <StackPanel>
-        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaEstacionamientos}" ColumnSizer="Star" AllowFiltering="True"/>
-        <StackPanel Orientation="Horizontal">
-            <Button Command="{Binding Path=FindAllCommand}">FindAll</Button>
-            <Button Command="{Binding Path=AñadirEstacionamientoCommand}">Añadir estacionamiento</Button>
+    <DockPanel>
+        <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Height="25" Command="{Binding Path=CobrarEstacionamientoCommand}" Click="CobrarButton_Click" >Cobrar</Button>
         </StackPanel>
-    </StackPanel>
+        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaEstacionamientos}" SelectedItem="{Binding Path=EstacionamientoSeleccionado}" ColumnSizer="Star" AllowFiltering="True"/>
+        
+    </DockPanel>
 
 
 

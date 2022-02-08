@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using ProyectoFinalDint.modelo;
 using ProyectoFinalDint.servicios;
 using System;
@@ -8,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ProyectoFinalDint.servicios.MessageService;
 
 namespace ProyectoFinalDint.vistamodelo
 {
@@ -22,43 +24,32 @@ namespace ProyectoFinalDint.vistamodelo
             set => SetProperty(ref listaEstacionamientos, value);
         }
 
-        private ObservableCollection<Estacionamientos> listaBinding;
+        private Estacionamientos estacionamientoSeleccionado;
 
-        public ObservableCollection<Estacionamientos> ListaBinding
+        public Estacionamientos EstacionamientoSeleccionado
         {
-            get { return listaBinding; }
-            set { SetProperty(ref listaBinding, value); }
+            get { return estacionamientoSeleccionado; }
+            set { SetProperty(ref estacionamientoSeleccionado, value); }
         }
 
-        public RelayCommand AñadirEstacionamientoCommand { get; }
-        public RelayCommand FindAllCommand { get; }
+        public RelayCommand CobrarEstacionamientoCommand { get; }
         public GestionarEstacionamientosVM()
         {
             ServicioSQLite = new SQLiteRepositoryEstacionamientos();
-            this.ListaBinding = new ObservableCollection<Estacionamientos>();
-            rellenarListaBinding();
-            this.ListaEstacionamientos = ServicioSQLite.FindAll();
-            AñadirEstacionamientoCommand = new RelayCommand(AñadirEstacionamiento);
-            FindAllCommand = new RelayCommand(FindAll);
+            this.ListaEstacionamientos = ServicioSQLite.FindEstacionamientosOcupados();  //Si no sale ninguno es porque no hay ninguno ocupado, es decir, el id_vehiculo del estacionamiento es NULL
+            CobrarEstacionamientoCommand = new RelayCommand(Cobrar);
         }
 
-        private void FindAll()
+        public void Cobrar()
         {
-            ListaEstacionamientos = ServicioSQLite.FindAll();
+            WeakReferenceMessenger.Default.Register<GestionarEstacionamientosVM, EstacionamientoSeleccionadoMessage>(this, (r, m) => { m.Reply(r.estacionamientoSeleccionado);});
         }
 
-        private void AñadirEstacionamiento()
+        private void EliminarEstacionamiento()
         {
-            ServicioSQLite.Inserta(new Estacionamientos(5,8,"1234 GGE", "03/02/2022 - 12:34", "03/02/2022 - 14:23", 5.9, "coche"));
+            ServicioSQLite.DeleteEstacionamientoById(estacionamientoSeleccionado.Id_estacionamiento);
+            ListaEstacionamientos = ServicioSQLite.FindEstacionamientosOcupados();
         }
-
-        public void rellenarListaBinding()
-        {
-            listaBinding.Add(new Estacionamientos(1,1,"aaaa", "entrada", "salida", 3.5, "coche"));
-            listaBinding.Add(new Estacionamientos(2, 12, "bbbbb", "entrada", "salida", 3.5, "coche"));
-            listaBinding.Add(new Estacionamientos(3, 15, "cccc", "entrada", "salida", 3.5, "moto"));
-        }
-
 
     }
 }

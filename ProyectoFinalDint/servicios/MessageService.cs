@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.Messaging.Messages;
+using ProyectoFinalDint.modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace ProyectoFinalDint.servicios
         {
             public NuevaMarcaMessage(string nuevaMarca) : base(nuevaMarca) { }
         }
+
+        public class EstacionamientoSeleccionadoMessage : RequestMessage<Estacionamientos> { }
     }
 }

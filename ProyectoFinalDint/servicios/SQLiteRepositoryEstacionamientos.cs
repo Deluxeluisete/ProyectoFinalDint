@@ -48,7 +48,7 @@ namespace ProyectoFinalDint.servicios
             comando.Parameters.Add("@tipo", SqliteType.Text);
 
             comando.Parameters["@id"].Value = resultado;
-            comando.Parameters["@idV"].Value = estacionamientos.Id_vehiculo != null ? estacionamientos.Id_vehiculo : -1;
+            comando.Parameters["@idV"].Value = estacionamientos.Id_vehiculo != null ? estacionamientos.Id_vehiculo : null;
             comando.Parameters["@mat"].Value = estacionamientos.Matricula;
             comando.Parameters["@fhentrada"].Value = estacionamientos.Entrada;
             comando.Parameters["@fhsalida"].Value = estacionamientos.Salida;
@@ -88,6 +88,27 @@ namespace ProyectoFinalDint.servicios
             this.conexion.Close();
             lector.Close();
             return null;
+        }
+
+        public ObservableCollection<Estacionamientos> FindEstacionamientosOcupados()
+        {
+            this.conexion.Open();
+
+            ObservableCollection<Estacionamientos> estacionamientos = new ObservableCollection<Estacionamientos>();
+
+            comando = conexion.CreateCommand();
+            comando.CommandText = "SELECT * FROM estacionamientos WHERE id_vehiculo IS NOT NULL";
+            SqliteDataReader lector = comando.ExecuteReader();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    estacionamientos.Add(EstacionamientosFactory(lector));
+                }
+            }
+            this.conexion.Close();
+            lector.Close();
+            return estacionamientos;
         }
         public Estacionamientos FindByMatricula(String mat)
         {

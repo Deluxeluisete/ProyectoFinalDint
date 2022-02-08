@@ -4,28 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProyectoFinalDint.vistas"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ListBox 
-        x:Name="lista"
-        ItemsSource="{Binding Path=ListaVehiculos}" Width="799">
-        <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-                <StackPanel/>
-            </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-            <DataTemplate >
-                <TextBlock
-                HorizontalAlignment="Left"
-                Margin="10">
-                <Run Text="{Binding Path=Matricula}"/>
-                <Run Text=" - "/>
-                <Run Text="{Binding Path=Modelo}"/>
-                <Run Text=" - "/>
-                <Run Text="{Binding Path=Tipo}"/>
-                </TextBlock>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+
+    <DockPanel>
+        <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Height="25" Command="{Binding Path=AñadirClienteCommand}">Añadir cliente</Button>
+            <Button Height="25" Command="{Binding Path=EditarClienteCommand}">Editar cliente</Button>
+            <Button Height="25" Command="{Binding Path=BorrarClienteCommand}">Borrar cliente</Button>
+        </StackPanel>
+        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaEstacionamientos}" SelectedItem="{Binding Path=EstacionamientoSeleccionado}" ColumnSizer="Star" AllowFiltering="True"/>
+
+    </DockPanel>
 </UserControl>

@@ -11,27 +11,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProyectoFinalDint.vistas
 {
     /// <summary>
-    /// Lógica de interacción para GestionarAparcamientosUserControl.xaml
+    /// Lógica de interacción para VentanaCobrar.xaml
     /// </summary>
-    public partial class GestionarAparcamientosUserControl : UserControl
+    public partial class VentanaCobrar : Window
     {
-        GestionarEstacionamientosVM vm;
-        public GestionarAparcamientosUserControl()
+        VentanaCobrarVM vm;
+        public VentanaCobrar()
         {
             InitializeComponent();
-            vm = new GestionarEstacionamientosVM();
+            vm = new VentanaCobrarVM();
             this.DataContext = vm;
-        }
-
-        private void CobrarButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = true; //arreglar pa abrir el ventanton
         }
     }
 }

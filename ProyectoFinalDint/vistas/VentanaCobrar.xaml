@@ -1,0 +1,21 @@
+﻿<Window x:Class="ProyectoFinalDint.vistas.VentanaCobrar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalDint.vistas"
+        xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
+        mc:Ignorable="d"
+        Title="VentanaCobrar" Height="450" Width="800">
+    <StackPanel Margin="10">
+        <TextBlock>
+            <Run>Fecha Entrada: </Run>
+            <Run Text="{Binding Path=EstacionamientoSeleccionado.Entrada}"></Run>
+        </TextBlock>
+        <TextBlock>
+            <Run>Fecha Salida: </Run>
+            <Run Text="{Binding Path=EstacionamientoSeleccionado.Salida}"></Run>
+        </TextBlock>
+
+    </StackPanel>
+</Window>

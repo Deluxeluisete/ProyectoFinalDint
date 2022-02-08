@@ -15,6 +15,12 @@ namespace ProyectoFinalDint.servicios
             NuevaMarca dialogo = new NuevaMarca();
             return dialogo.ShowDialog();
         }
+
+        public bool? AbrirDialogoCobrar()
+        {
+            VentanaCobrar dialogo = new VentanaCobrar();
+            return dialogo.ShowDialog();
+        }
         internal UserControl GestionarClientesUC() => new GestionarClientesUserControl();
         internal UserControl GestionarVehiculosUC() => new GestionarVehiculosUserControl();
         internal UserControl GestionarEstacionamientosUC() => new GestionarAparcamientosUserControl();

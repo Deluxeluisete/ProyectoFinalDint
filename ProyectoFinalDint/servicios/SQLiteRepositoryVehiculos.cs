@@ -68,19 +68,20 @@ namespace ProyectoFinalDint.servicios
             comando.CommandText = "SELECT * FROM vehiculos WHERE id_vehiculo = " + id;
 
             SqliteDataReader lector = comando.ExecuteReader();
+            Vehiculos v = VehiculosFactory(lector);
             if (lector.HasRows)
             {
                 if (lector.Read())
                 {
-                    Vehiculos v = VehiculosFactory(lector);
+                    
                     this.conexion.Close();
                     lector.Close();
-                    return v;
+                    //return v;
                 }
             }
             this.conexion.Close();
             lector.Close();
-            return null;
+            return v;
         }
         public Vehiculos FindByMatricula(String mat)
         {
