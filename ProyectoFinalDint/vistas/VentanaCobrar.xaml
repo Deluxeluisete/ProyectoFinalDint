@@ -18,9 +18,13 @@
             <Run>Fecha Salida: </Run>
             <Run Text="{Binding Path=EstacionamientoSeleccionado.Salida}"></Run>
         </TextBlock>
+        <TextBlock>
+            <Run>Importe Total: </Run>
+            <Run Text="{Binding Path=Importe}"></Run>
+        </TextBlock>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Margin="5" Click="AceptarButton_Click">Aceptar</Button>
-            <Button Margin="5">Cancelar</Button>
+            <Button Margin="5" Width="75" Click="AceptarButton_Click">Aceptar</Button>
+            <Button Margin="5" Width="75">Cancelar</Button>
         </StackPanel>
     </StackPanel>
 </Window>

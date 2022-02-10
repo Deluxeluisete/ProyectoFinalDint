@@ -39,14 +39,17 @@ namespace ProyectoFinalDint.vistamodelo
         {
             ServicioSQLite = new SQLiteRepositoryEstacionamientos();
             ServicioNavegacion = new NavigationService();
-            this.ListaEstacionamientos = ServicioSQLite.FindAll();  //Si no sale ninguno es porque no hay ninguno ocupado, es decir, el id_vehiculo del estacionamiento es NULL
+            this.ListaEstacionamientos = ServicioSQLite.FindEstacionamientosOcupados();  //Si no sale ninguno es porque no hay ninguno ocupado, es decir, el id_vehiculo del estacionamiento es NULL
             CobrarEstacionamientoCommand = new RelayCommand(Cobrar);
         }
 
         public void Cobrar()
         {
             WeakReferenceMessenger.Default.Register<GestionarEstacionamientosVM, EstacionamientoSeleccionadoMessage>(this, (r, m) => { m.Reply(r.estacionamientoSeleccionado);});
-            ServicioNavegacion.AbrirDialogoCobrar();
+            if( true == ServicioNavegacion.AbrirDialogoCobrar())
+            {
+                ListaEstacionamientos = ServicioSQLite.FindEstacionamientosOcupados();
+            }
         }
 
         private void EliminarEstacionamiento()

@@ -11,6 +11,11 @@
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=EstacionamientoSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
     </UserControl.Resources>
     

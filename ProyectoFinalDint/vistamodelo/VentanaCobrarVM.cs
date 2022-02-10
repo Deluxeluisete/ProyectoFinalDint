@@ -13,6 +13,19 @@ namespace ProyectoFinalDint.vistamodelo
 {
     class VentanaCobrarVM : ObservableRecipient
     {
+        private SQLiteRepositoryVehiculos ServicioRepositorioVehiculos;
+        private double importe;
+
+        public double Importe
+        {
+            get
+            {
+                Importe = esCliente(EstacionamientoSeleccionado, ServicioRepositorioVehiculos) ? EstacionamientoSeleccionado.Importe * 0.9 : EstacionamientoSeleccionado.Importe;
+                return importe;
+            }
+            set { SetProperty(ref importe, value); }
+        }
+
         private Estacionamientos estacionamientoSeleccionado;
 
         public Estacionamientos EstacionamientoSeleccionado
@@ -24,6 +37,21 @@ namespace ProyectoFinalDint.vistamodelo
         public VentanaCobrarVM()
         {
             EstacionamientoSeleccionado = WeakReferenceMessenger.Default.Send<EstacionamientoSeleccionadoMessage>();
+            ServicioRepositorioVehiculos = new SQLiteRepositoryVehiculos();
+        }
+
+        public static Boolean esCliente(Estacionamientos EstacionamientoSeleccionado, SQLiteRepositoryVehiculos ServicioRepositorioVehiculos)
+        {
+            Vehiculos vehiculoComprobar = new Vehiculos();
+            vehiculoComprobar = ServicioRepositorioVehiculos.FindById((int)EstacionamientoSeleccionado.Id_vehiculo);
+            if (vehiculoComprobar.Id_vehiculo == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using ProyectoFinalDint.modelo;
 using ProyectoFinalDint.servicios;
 using System;
@@ -12,6 +13,14 @@ namespace ProyectoFinalDint.vistamodelo
 {
     class GestionarVehiculosVM : ObservableObject
     {
+        RelayCommand AñadirClienteCommand { get; }
+
+        RelayCommand EditarClienteCommand { get; }
+
+        RelayCommand BorrarClienteCommand { get; }
+
+        SQLiteRepositoryVehiculos ServicioSQLVehiculos;
+
         private ObservableCollection<Vehiculos> listaVehiculos;
         public ObservableCollection<Vehiculos> ListaVehiculos
         {
@@ -20,7 +29,26 @@ namespace ProyectoFinalDint.vistamodelo
         }
         public GestionarVehiculosVM()
         {
-            //this.ListaVehiculos = new SQLiteRepositoryVehiculos().FindAll();
+            ServicioSQLVehiculos = new SQLiteRepositoryVehiculos();
+            this.ListaVehiculos = ServicioSQLVehiculos.FindAll();
+            AñadirClienteCommand = new RelayCommand(AñadirVehiculo);
+            EditarClienteCommand = new RelayCommand(EditarVehiculo);
+            BorrarClienteCommand = new RelayCommand(BorrarVehiculo);
+        }
+
+        private void BorrarVehiculo()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void EditarVehiculo()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AñadirVehiculo()
+        {
+            throw new NotImplementedException();
         }
     }
 }

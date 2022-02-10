@@ -97,7 +97,7 @@ namespace ProyectoFinalDint.servicios
             ObservableCollection<Estacionamientos> estacionamientos = new ObservableCollection<Estacionamientos>();
 
             comando = conexion.CreateCommand();
-            comando.CommandText = "SELECT * FROM estacionamientos WHERE id_vehiculo IS NOT NULL";
+            comando.CommandText = "SELECT * FROM estacionamientos WHERE salida IS NULL";
             SqliteDataReader lector = comando.ExecuteReader();
             if (lector.HasRows)
             {
