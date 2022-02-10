@@ -29,9 +29,5 @@ namespace ProyectoFinalDint.vistas
             this.DataContext = vm;
         }
 
-        private void CobrarButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = true; //arreglar pa abrir el ventanton
-        }
     }
 }

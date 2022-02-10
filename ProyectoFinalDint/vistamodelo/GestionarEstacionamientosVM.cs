@@ -17,6 +17,8 @@ namespace ProyectoFinalDint.vistamodelo
     {
         private SQLiteRepositoryEstacionamientos ServicioSQLite;
 
+        private NavigationService ServicioNavegacion;
+
         private ObservableCollection<Estacionamientos> listaEstacionamientos;
         public ObservableCollection<Estacionamientos> ListaEstacionamientos
         {
@@ -36,13 +38,15 @@ namespace ProyectoFinalDint.vistamodelo
         public GestionarEstacionamientosVM()
         {
             ServicioSQLite = new SQLiteRepositoryEstacionamientos();
-            this.ListaEstacionamientos = ServicioSQLite.FindEstacionamientosOcupados();  //Si no sale ninguno es porque no hay ninguno ocupado, es decir, el id_vehiculo del estacionamiento es NULL
+            ServicioNavegacion = new NavigationService();
+            this.ListaEstacionamientos = ServicioSQLite.FindAll();  //Si no sale ninguno es porque no hay ninguno ocupado, es decir, el id_vehiculo del estacionamiento es NULL
             CobrarEstacionamientoCommand = new RelayCommand(Cobrar);
         }
 
         public void Cobrar()
         {
             WeakReferenceMessenger.Default.Register<GestionarEstacionamientosVM, EstacionamientoSeleccionadoMessage>(this, (r, m) => { m.Reply(r.estacionamientoSeleccionado);});
+            ServicioNavegacion.AbrirDialogoCobrar();
         }
 
         private void EliminarEstacionamiento()

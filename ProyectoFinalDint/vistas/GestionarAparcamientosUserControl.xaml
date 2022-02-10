@@ -16,7 +16,7 @@
     
     <DockPanel>
         <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
-            <Button Height="25" Command="{Binding Path=CobrarEstacionamientoCommand}" Click="CobrarButton_Click" >Cobrar</Button>
+            <Button Height="25" Command="{Binding Path=CobrarEstacionamientoCommand}">Cobrar</Button>
         </StackPanel>
         <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaEstacionamientos}" SelectedItem="{Binding Path=EstacionamientoSeleccionado}" ColumnSizer="Star" AllowFiltering="True"/>
         

@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:ProyectoFinalDint.vistas"
         xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
         mc:Ignorable="d"
-        Title="VentanaCobrar" Height="450" Width="800">
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Title="VentanaCobrar" Height="500" Width="300">
     <StackPanel Margin="10">
         <TextBlock>
             <Run>Fecha Entrada: </Run>
@@ -16,6 +18,9 @@
             <Run>Fecha Salida: </Run>
             <Run Text="{Binding Path=EstacionamientoSeleccionado.Salida}"></Run>
         </TextBlock>
-
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Margin="5" Click="AceptarButton_Click">Aceptar</Button>
+            <Button Margin="5">Cancelar</Button>
+        </StackPanel>
     </StackPanel>
 </Window>
