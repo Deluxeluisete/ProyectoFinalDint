@@ -8,41 +8,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <!--<Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaClientes}" ColumnSizer="Star" AllowFiltering="True" Grid.Row="0"/>
-
-        <Grid Grid.Row="1"  Background="Aquamarine">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <Button Content="Editar" x:Name="EditarButton" Grid.Column="1" Height="30" Margin="10"></Button>
-            <Button Content="Añadir" x:Name="AñadirButton" Grid.Column="2" Height="30" Margin="10"></Button>
-            <Button Content="Borrar" x:Name="BorrarButton"  Grid.Column="3" Height="30" Margin="10"></Button>
-
-        </Grid>
-
-    </Grid>-->
+   
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"/>
         </Style>
     </UserControl.Resources>
 
-    <StackPanel>
-        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaClientes}" ColumnSizer="Star" AllowFiltering="True"/>
-        <StackPanel Orientation="Horizontal">
-            <Button Command="{Binding Path=FindAllCommand}">FindAll</Button>
-            <Button Command="{Binding Path=AñadirEstacionamientoCommand}">Añadir estacionamiento</Button>
+    <DockPanel>
+        <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Height="25" Command="{Binding Path=CobrarEstacionamientoCommand}">Cobrar</Button>
         </StackPanel>
-    </StackPanel>
+        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=EstacionamientoSeleccionado}" ColumnSizer="Star" AllowFiltering="True"/>
+
+    </DockPanel>
 
 </UserControl>
