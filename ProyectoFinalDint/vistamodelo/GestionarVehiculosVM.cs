@@ -13,6 +13,35 @@ namespace ProyectoFinalDint.vistamodelo
 {
     class GestionarVehiculosVM : ObservableObject
     {
+        private Estacionamientos plazaActual;
+        public Estacionamientos PlazaActual
+        {
+            get => plazaActual;
+            private set => plazaActual = value;
+        }
+        private Clientes clienteActual;
+        public Clientes ClienteActual
+        {
+            get => clienteActual;
+            private set => SetProperty(ref clienteActual, value);
+        }
+        private Vehiculos vehiculoActual;
+        public Vehiculos VehiculoActual
+        {
+            get => vehiculoActual;
+            set
+            {
+                SetProperty(ref vehiculoActual, value);
+                this.ClienteActual = new SQLiteRepositoryClientes().FindById(this.VehiculoActual.Id_cliente);
+                this.PlazaActual = new SQLiteRepositoryEstacionamientos().FindByMatricula(this.VehiculoActual.Matricula);
+            }
+        }
+        private ObservableCollection<Vehiculos> listaVehiculos;
+        public ObservableCollection<Vehiculos> ListaVehiculos
+        {
+            get => listaVehiculos;
+            set => SetProperty(ref listaVehiculos, value);
+        }
         RelayCommand AñadirClienteCommand { get; }
 
         RelayCommand EditarClienteCommand { get; }
@@ -20,13 +49,6 @@ namespace ProyectoFinalDint.vistamodelo
         RelayCommand BorrarClienteCommand { get; }
 
         SQLiteRepositoryVehiculos ServicioSQLVehiculos;
-
-        private ObservableCollection<Vehiculos> listaVehiculos;
-        public ObservableCollection<Vehiculos> ListaVehiculos
-        {
-            get => listaVehiculos;
-            set => SetProperty(ref listaVehiculos, value);
-        }
         public GestionarVehiculosVM()
         {
             ServicioSQLVehiculos = new SQLiteRepositoryVehiculos();
@@ -38,17 +60,26 @@ namespace ProyectoFinalDint.vistamodelo
 
         private void BorrarVehiculo()
         {
-            throw new NotImplementedException();
+            if (new SQLiteRepositoryEstacionamientos().FindByMatricula(this.VehiculoActual.Matricula) == null)
+            {
+                new SQLiteRepositoryVehiculos().DeleteVehiculo(this.VehiculoActual);
+            }
         }
 
         private void EditarVehiculo()
         {
-            throw new NotImplementedException();
+            if (new SQLiteRepositoryEstacionamientos().FindByMatricula(this.VehiculoActual.Matricula) == null)
+            {
+                new SQLiteRepositoryVehiculos().UpdateVehiculo(this.VehiculoActual);
+            }
         }
 
         private void AñadirVehiculo()
         {
-            throw new NotImplementedException();
+            if (new SQLiteRepositoryEstacionamientos().FindByMatricula(this.VehiculoActual.Matricula) == null)
+            {
+                new SQLiteRepositoryVehiculos().InsertaVehiculo(this.VehiculoActual);
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace ProyectoFinalDint.servicios
             this.src = source;
             this.conexion = new SqliteConnection("Data Source=" + this.src + this.nombreDB);
         }
-        public void Inserta(Vehiculos Vehiculo)
+        public void InsertaVehiculo(Vehiculos Vehiculo)
         {
             this.conexion.Open();
             comando = conexion.CreateCommand();
