@@ -9,77 +9,24 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="Button" x:Key="ButtonBase">
             <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button" x:Key="EditDeleteButton" BasedOn="{StaticResource ButtonBase}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=VehiculoSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
     </UserControl.Resources>
 
     <DockPanel>
-        
-        
-        
         <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
-            <Button Height="25" Command="{Binding Path=AñadirClienteCommand}">Añadir cliente</Button>
-            <Button Height="25" Command="{Binding Path=EditarClienteCommand}">Editar cliente</Button>
-            <Button Height="25" Command="{Binding Path=BorrarClienteCommand}">Borrar cliente</Button>
+            <Button Height="25" Command="{Binding Path=AñadirVehiculoCommand}" Style="{StaticResource ButtonBase}">Añadir Vehiculo</Button>
+            <Button Height="25" Command="{Binding Path=EditarVehiculoCommand}" Style="{StaticResource EditDeleteButton}">Editar Vehiculo</Button>
+            <Button Height="25" Command="{Binding Path=BorrarVehiculoCommand}" Style="{StaticResource EditDeleteButton}">Borrar Vehiculo</Button>
         </StackPanel>
-        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaEstacionamientos}" SelectedItem="{Binding Path=EstacionamientoSeleccionado}" ColumnSizer="Star" AllowFiltering="True"/>
-        <DockPanel>
-            <StackPanel
-            Width="250"
-            DockPanel.Dock="Right"
-            Orientation="Vertical">
-                <StackPanel
-                Margin="10"
-                Orientation="Vertical">
-                    <StackPanel
-                Orientation="Horizontal"
-                    VerticalAlignment="Center">
-                        <Label Content="Modelo: "/>
-                        <TextBlock Text="{Binding Path=VehiculoActual.Modelo}"
-                            VerticalAlignment="Center"/>
-                    </StackPanel>
-                    <StackPanel
-                Orientation="Horizontal">
-                        <Label Content="Propietario: "/>
-                        <TextBlock Text="{Binding Path=ClienteActual.Nombre}"
-                            VerticalAlignment="Center"/>
-                    </StackPanel>
-                    <StackPanel
-                Orientation="Horizontal">
-                        <Label Content="Hora de entrada: "/>
-                        <TextBlock 
-                            Text="{Binding Path=PlazaActual.Entrada}"
-                            VerticalAlignment="Center"/>
-                    </StackPanel>
-                </StackPanel>
-
-            </StackPanel>
-            <ListBox 
-            x:Name="lista"
-            SelectedItem="{Binding Path=VehiculoActual}"
-            ItemsSource="{Binding Path=ListaVehiculos}" 
-            Width="799">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-                <ListBox.ItemTemplate>
-                    <DataTemplate >
-                        <TextBlock
-                HorizontalAlignment="Left"
-                Margin="10">
-                <Run Text="{Binding Path=Matricula}"/>
-                <Run Text=" - "/>
-                <Run Text="{Binding Path=Modelo}"/>
-                <Run Text=" - "/>
-                <Run Text="{Binding Path=Tipo}"/>
-                        </TextBlock>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-        </DockPanel>
+        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaVehiculos}" SelectedItem="{Binding Path=VehiculoSeleccionado}" ColumnSizer="Star" AllowFiltering="True"/>
     </DockPanel>
 </UserControl>

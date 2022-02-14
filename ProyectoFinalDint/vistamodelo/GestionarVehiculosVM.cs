@@ -42,20 +42,29 @@ namespace ProyectoFinalDint.vistamodelo
             get => listaVehiculos;
             set => SetProperty(ref listaVehiculos, value);
         }
-        RelayCommand AñadirClienteCommand { get; }
 
-        RelayCommand EditarClienteCommand { get; }
+        private Vehiculos vehiculoSeleccionado;
 
-        RelayCommand BorrarClienteCommand { get; }
+        public Vehiculos VehiculoSeleccionado
+        {
+            get { return vehiculoSeleccionado; }
+            set { SetProperty(ref vehiculoSeleccionado, value); }
+        }
+
+        public RelayCommand AñadirVehiculoCommand { get; }
+
+        public RelayCommand EditarVehiculoCommand { get; }
+
+        public RelayCommand BorrarVehiculoCommand { get; }
 
         SQLiteRepositoryVehiculos ServicioSQLVehiculos;
         public GestionarVehiculosVM()
         {
             ServicioSQLVehiculos = new SQLiteRepositoryVehiculos();
             this.ListaVehiculos = ServicioSQLVehiculos.FindAll();
-            AñadirClienteCommand = new RelayCommand(AñadirVehiculo);
-            EditarClienteCommand = new RelayCommand(EditarVehiculo);
-            BorrarClienteCommand = new RelayCommand(BorrarVehiculo);
+            AñadirVehiculoCommand = new RelayCommand(AñadirVehiculo);
+            EditarVehiculoCommand = new RelayCommand(EditarVehiculo);
+            BorrarVehiculoCommand = new RelayCommand(BorrarVehiculo);
         }
 
         private void BorrarVehiculo()
@@ -64,6 +73,7 @@ namespace ProyectoFinalDint.vistamodelo
             {
                 new SQLiteRepositoryVehiculos().DeleteVehiculo(this.VehiculoActual);
             }
+            ListaVehiculos = ServicioSQLVehiculos.FindAll();
         }
 
         private void EditarVehiculo()
@@ -72,14 +82,18 @@ namespace ProyectoFinalDint.vistamodelo
             {
                 new SQLiteRepositoryVehiculos().UpdateVehiculo(this.VehiculoActual);
             }
+            ListaVehiculos = ServicioSQLVehiculos.FindAll();
         }
 
         private void AñadirVehiculo()
         {
+            //Traer de una ventana hija el objeto vehiculo con los datos insertados por el usuario.
+
             if (new SQLiteRepositoryEstacionamientos().FindByMatricula(this.VehiculoActual.Matricula) == null)
             {
                 new SQLiteRepositoryVehiculos().InsertaVehiculo(this.VehiculoActual);
             }
+            ListaVehiculos = ServicioSQLVehiculos.FindAll();
         }
     }
 }
