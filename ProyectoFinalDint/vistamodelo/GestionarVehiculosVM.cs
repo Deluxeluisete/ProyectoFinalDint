@@ -13,7 +13,7 @@ namespace ProyectoFinalDint.vistamodelo
 {
     class GestionarVehiculosVM : ObservableObject
     {
-        private Estacionamientos plazaActual;
+        /*private Estacionamientos plazaActual;
         public Estacionamientos PlazaActual
         {
             get => plazaActual;
@@ -24,7 +24,7 @@ namespace ProyectoFinalDint.vistamodelo
         {
             get => clienteActual;
             private set => SetProperty(ref clienteActual, value);
-        }
+        }*/
         private Vehiculos vehiculoActual;
         public Vehiculos VehiculoActual
         {
@@ -32,8 +32,8 @@ namespace ProyectoFinalDint.vistamodelo
             set
             {
                 SetProperty(ref vehiculoActual, value);
-                this.ClienteActual = new SQLiteRepositoryClientes().FindById(this.VehiculoActual.Id_cliente);
-                this.PlazaActual = new SQLiteRepositoryEstacionamientos().FindByMatricula(this.VehiculoActual.Matricula);
+                /*this.ClienteActual = new SQLiteRepositoryClientes().FindById(this.VehiculoActual.Id_cliente);
+                this.PlazaActual = new SQLiteRepositoryEstacionamientos().FindByMatricula(this.VehiculoActual.Matricula);*/
             }
         }
         private ObservableCollection<Vehiculos> listaVehiculos;
@@ -41,14 +41,6 @@ namespace ProyectoFinalDint.vistamodelo
         {
             get => listaVehiculos;
             set => SetProperty(ref listaVehiculos, value);
-        }
-
-        private Vehiculos vehiculoSeleccionado;
-
-        public Vehiculos VehiculoSeleccionado
-        {
-            get { return vehiculoSeleccionado; }
-            set { SetProperty(ref vehiculoSeleccionado, value); }
         }
 
         public RelayCommand AñadirVehiculoCommand { get; }

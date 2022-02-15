@@ -40,7 +40,7 @@ namespace ProyectoFinalDint.servicios
             comando.Parameters.Add("@mod", SqliteType.Text);
             comando.Parameters.Add("@tipo", SqliteType.Text);
 
-            comando.Parameters["@id"].Value = resultado;
+            comando.Parameters["@id"].Value = resultado+1;
             comando.Parameters["@idCl"].Value = Vehiculo.Id_cliente;
             comando.Parameters["@mat"].Value = Vehiculo.Matricula;
             comando.Parameters["@idM"].Value = Vehiculo.Id_marca;

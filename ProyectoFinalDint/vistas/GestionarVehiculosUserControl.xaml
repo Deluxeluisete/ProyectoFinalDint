@@ -27,6 +27,6 @@
             <Button Height="25" Command="{Binding Path=EditarVehiculoCommand}" Style="{StaticResource EditDeleteButton}">Editar Vehiculo</Button>
             <Button Height="25" Command="{Binding Path=BorrarVehiculoCommand}" Style="{StaticResource EditDeleteButton}">Borrar Vehiculo</Button>
         </StackPanel>
-        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaVehiculos}" SelectedItem="{Binding Path=VehiculoSeleccionado}" ColumnSizer="Star" AllowFiltering="True"/>
+        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaVehiculos}" SelectedItem="{Binding Path=VehiculoActual}" ColumnSizer="Star" AllowFiltering="True"/>
     </DockPanel>
 </UserControl>

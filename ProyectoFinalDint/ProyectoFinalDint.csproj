@@ -152,6 +152,9 @@
     <Compile Include="vistamodelo\GestionarVehiculosVM.cs" />
     <Compile Include="vistamodelo\NuevaMarcaVM.cs" />
     <Compile Include="vistamodelo\VentanaCobrarVM.cs" />
+    <Compile Include="vistas\NuevoVehiculo.xaml.cs">
+      <DependentUpon>NuevoVehiculo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\GestionarAparcamientosUserControl.xaml.cs">
       <DependentUpon>GestionarAparcamientosUserControl.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="vistas\NuevoVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vistas\GestionarAparcamientosUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

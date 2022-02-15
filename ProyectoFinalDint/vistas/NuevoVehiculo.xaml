@@ -1,0 +1,30 @@
+﻿<Window x:Class="ProyectoFinalDint.vistas.NuevoVehiculo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalDint.vistas" xmlns:inputLayout="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="NuevoVehiculo" Height="400" Width="300">
+    <StackPanel Margin="5">
+        <inputLayout:SfTextInputLayout Hint="Documento cliente">
+            <TextBox/>
+        </inputLayout:SfTextInputLayout>
+        <inputLayout:SfTextInputLayout Hint="Matricula">
+            <TextBox/>
+        </inputLayout:SfTextInputLayout>
+        <inputLayout:SfTextInputLayout Hint="Marca">
+            <TextBox/>
+        </inputLayout:SfTextInputLayout>
+        <inputLayout:SfTextInputLayout Hint="Modelo">
+            <TextBox/>
+        </inputLayout:SfTextInputLayout>
+        <inputLayout:SfTextInputLayout Hint="Tipo">
+            <TextBox/>
+        </inputLayout:SfTextInputLayout>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Margin="20,0" Width="100" IsDefault="True" Click="AceptarButton_Click">Aceptar</Button>
+            <Button Width="100" IsCancel="True">Cancelar</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
