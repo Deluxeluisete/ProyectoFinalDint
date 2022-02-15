@@ -12,11 +12,11 @@
     <StackPanel Margin="10">
         <TextBlock>
             <Run>Fecha Entrada: </Run>
-            <Run Text="{Binding Path=EstacionamientoSeleccionado.Entrada}"></Run>
+            <Run Text="{Binding Path=EstacionamientoActual.Entrada}"></Run>
         </TextBlock>
         <TextBlock>
             <Run>Fecha Salida: </Run>
-            <Run Text="{Binding Path=EstacionamientoSeleccionado.Salida}"></Run>
+            <Run Text="{Binding Path=EstacionamientoActual.Salida}"></Run>
         </TextBlock>
         <TextBlock>
             <Run>Importe Total: </Run>

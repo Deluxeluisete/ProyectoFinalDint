@@ -12,7 +12,7 @@
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"/>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=EstacionamientoSeleccionado}" Value="{x:Null}">
+                <DataTrigger Binding="{Binding Path=EstacionamientoActual}" Value="{x:Null}">
                     <Setter Property="IsEnabled" Value="False"/>
                 </DataTrigger>
             </Style.Triggers>
@@ -23,7 +23,7 @@
         <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
             <Button Height="25" Command="{Binding Path=CobrarEstacionamientoCommand}">Cobrar</Button>
         </StackPanel>
-        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaEstacionamientos}" SelectedItem="{Binding Path=EstacionamientoSeleccionado}" ColumnSizer="Star" AllowFiltering="True"/>
+        <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaEstacionamientos}" SelectedItem="{Binding Path=EstacionamientoActual}" ColumnSizer="Star" AllowFiltering="True"/>
         
     </DockPanel>
 
