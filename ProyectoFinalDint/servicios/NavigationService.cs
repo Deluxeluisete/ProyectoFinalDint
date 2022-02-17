@@ -21,6 +21,17 @@ namespace ProyectoFinalDint.servicios
             VentanaCobrar dialogo = new VentanaCobrar();
             return dialogo.ShowDialog();
         }
+
+        public bool? AbrirDialogoNuevoVehiculo()
+        {
+            NuevoVehiculo dialogo = new NuevoVehiculo();
+            return dialogo.ShowDialog();
+        }
+        public bool? AbrirDialogoNuevoCliente()
+        {
+            NuevoCliente dialogo = new NuevoCliente();
+            return dialogo.ShowDialog();
+        }
         internal UserControl GestionarClientesUC() => new GestionarClientesUserControl();
         internal UserControl GestionarVehiculosUC() => new GestionarVehiculosUserControl();
         internal UserControl GestionarEstacionamientosUC() => new GestionarAparcamientosUserControl();

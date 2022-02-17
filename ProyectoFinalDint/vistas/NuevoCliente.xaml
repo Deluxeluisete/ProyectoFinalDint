@@ -1,27 +1,35 @@
-﻿<Window x:Class="ProyectoFinalDint.vistas.NuevoVehiculo"
+﻿<Window x:Class="ProyectoFinalDint.vistas.NuevoCliente"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProyectoFinalDint.vistas" xmlns:inputLayout="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:ProyectoFinalDint.vistas"
+        xmlns:inputLayout="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="NuevoVehiculo" Height="400" Width="300">
+        Title="NuevoCliente" Height="450" Width="800">
     <StackPanel Margin="5">
-        <inputLayout:SfTextInputLayout Hint="Documento cliente">
+        <inputLayout:SfTextInputLayout Hint="Nombre">
             <TextBox/>
         </inputLayout:SfTextInputLayout>
-        <inputLayout:SfTextInputLayout Hint="Matricula">
+        <inputLayout:SfTextInputLayout Hint="Documento">
             <TextBox/>
         </inputLayout:SfTextInputLayout>
-        <inputLayout:SfTextInputLayout Hint="Marca">
+        <inputLayout:SfTextInputLayout Hint="Telefono">
             <TextBox/>
         </inputLayout:SfTextInputLayout>
-        <inputLayout:SfTextInputLayout Hint="Modelo">
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <inputLayout:SfTextInputLayout Width="600" Hint="Foto">
+                <TextBox/>
+            </inputLayout:SfTextInputLayout>
+            <Button Height="25" Margin="10,0" Command="ExaminarFotoCommand">Examinar</Button>
+        </StackPanel>
+        <inputLayout:SfTextInputLayout Hint="Edad" IsEnabled="False" >
             <TextBox/>
         </inputLayout:SfTextInputLayout>
-        <inputLayout:SfTextInputLayout Hint="Tipo">
+        <inputLayout:SfTextInputLayout Hint="Genero" IsEnabled="False">
             <TextBox/>
         </inputLayout:SfTextInputLayout>
+
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Margin="20,0" Width="100" IsDefault="True" Click="Aceptar_Click">Aceptar</Button>
             <Button Width="100" IsCancel="True">Cancelar</Button>

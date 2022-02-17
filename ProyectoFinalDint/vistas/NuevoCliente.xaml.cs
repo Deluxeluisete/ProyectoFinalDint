@@ -16,15 +16,15 @@ using System.Windows.Shapes;
 namespace ProyectoFinalDint.vistas
 {
     /// <summary>
-    /// Lógica de interacción para NuevoVehiculo.xaml
+    /// Lógica de interacción para NuevoCliente.xaml
     /// </summary>
-    public partial class NuevoVehiculo : Window
+    public partial class NuevoCliente : Window
     {
-        NuevoVehiculoVM vm;
-        public NuevoVehiculo()
+        NuevoClienteVM vm;
+        public NuevoCliente()
         {
             InitializeComponent();
-            vm = new NuevoVehiculoVM();
+            vm = new NuevoClienteVM();
             this.DataContext = vm;
         }
 

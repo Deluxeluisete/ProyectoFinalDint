@@ -21,11 +21,14 @@ namespace ProyectoFinalDint.vistas
     /// </summary>
     public partial class GestionarClientesUserControl : UserControl
     {
+        GestionarClientesVM vm;
         public GestionarClientesUserControl()
         {
             InitializeComponent();
-            this.DataContext = new GestionarClientesVM();
+            vm = new GestionarClientesVM();
+            this.DataContext = vm;
 
         }
+
     }
 }

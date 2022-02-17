@@ -17,7 +17,9 @@
 
     <DockPanel>
         <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
-            <Button Height="25" Command="{Binding Path=CobrarEstacionamientoCommand}">Cobrar</Button>
+            <Button Command="{Binding Path=AñadirClienteCommand}">Añadir Cliente</Button>
+            <Button>Editar Cliente</Button>
+            <Button Command="{Binding Path=EliminarClienteCommand}">Eliminar Cliente</Button>
         </StackPanel>
         <syncfusion:SfDataGrid ItemsSource="{Binding Path=ListaClientes}" SelectedItem="{Binding Path=EstacionamientoActual}" ColumnSizer="Star" AllowFiltering="True"/>
 
