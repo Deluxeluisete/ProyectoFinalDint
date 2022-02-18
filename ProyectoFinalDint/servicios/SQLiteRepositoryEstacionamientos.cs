@@ -30,6 +30,10 @@ namespace ProyectoFinalDint.servicios
         lo  cual no es muy práctico. No voy a depurar este método, ya que solo lo usaremos para pruebas. En la versión final,
         deberiamos incluir un número fijo de plazas o hacer que se genere un número concreto de ellas.
          */
+        /// <summary>
+        /// Añade un estacionamiento a la base de datos
+        /// </summary>
+        /// <param name="estacionamientos">Un objeto estacionamiento del cual se extraen los datos para insertalos en la base de datos</param>
         public void Inserta(Estacionamientos estacionamientos)
         {
             this.conexion.Open();
@@ -58,6 +62,11 @@ namespace ProyectoFinalDint.servicios
             comando.ExecuteNonQuery();
             this.conexion.Close();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lector"></param>
+        /// <returns></returns>
         private Estacionamientos EstacionamientosFactory(SqliteDataReader lector) => new Estacionamientos(
             lector.GetInt32(0),
             lector.IsDBNull(1) ? -1 : lector.GetInt32(1),
@@ -67,6 +76,12 @@ namespace ProyectoFinalDint.servicios
             lector.IsDBNull(5) ? 0.0 : lector.GetDouble(5),
             lector[6].ToString()
         );
+
+        /// <summary>
+        /// Encuentra un estacionamiento por id
+        /// </summary>
+        /// <param name="id">Identificador del estacionamiento</param>
+        /// <returns>Devuelve un objeto estacionamiento con el id del parametro</returns>
         public Estacionamientos FindById(int id)
         {
             this.conexion.Open();
@@ -89,7 +104,10 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
-
+        /// <summary>
+        /// Devuelve los estacionamientos que estan Ocupados, es decir que estan asociados a un vehiculo
+        /// </summary>
+        /// <returns>Devuelve una lista de estacionamientos ocupados</returns>
         public ObservableCollection<Estacionamientos> FindEstacionamientosOcupados()
         {
             this.conexion.Open();
@@ -110,6 +128,11 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return estacionamientos;
         }
+        /// <summary>
+        /// Busca un estacionamiento por la matricula del coche que lo ocupa
+        /// </summary>
+        /// <param name="mat">La matricula del coche</param>
+        /// <returns>Devuelve el estacionamiento ocupado o no</returns>
         public Estacionamientos FindByMatricula(String mat)
         {
             this.conexion.Open();
@@ -129,6 +152,10 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
+        /// <summary>
+        /// Busca todos los estacionamientos
+        /// </summary>
+        /// <returns>Devuelve una lista de todos los estacionamientos</returns>
         public ObservableCollection<Estacionamientos> FindAll()
         {
             this.conexion.Open();
@@ -151,6 +178,13 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return estacionamientos;
         }
+        /// <summary>
+        /// Añade la hora de entrada de un vehiculo a un estacionamiento
+        /// </summary>
+        /// <param name="vehiculo">El vehiculo que entra al estacionamiento</param>
+        /// <param name="fhEntrada">Fecha y hora de entrada del vehiculo</param>
+        /// <param name="idPlaza">id del estacionamiento</param>
+        /// <returns>Devuelve si se ha añadido con exito la entrada (True) o no (False)</returns>
         public bool UpdateEstacionamientoMatriculaHoraEntrada(Vehiculos vehiculo, DateTime fhEntrada, int idPlaza)
         {
             String idV = "";
@@ -187,6 +221,12 @@ namespace ProyectoFinalDint.servicios
             }
             else return false;
         }
+        /// <summary>
+        /// Añade la hora de salida de un vehiculo a un estacionamiento
+        /// </summary>
+        /// <param name="idPlaza">id del estacionamiento</param>
+        /// <param name="fhSalida">Fecha y hora de entrada del vehiculo</param>
+        /// <returns>Devuelve si se ha añadido con exito la salida (True) o no (False)</returns>
         public bool UpdateEstacionamientoHoraSalida(int idPlaza, DateTime fhSalida)
         {
             if (FindById(idPlaza) != null)
@@ -209,6 +249,11 @@ namespace ProyectoFinalDint.servicios
             }
             else return false;
         }
+        /// <summary>
+        /// Vacia un estacionamiento por su plaza
+        /// </summary>
+        /// <param name="idPlaza">Id de la plaza</param>
+        /// <returns>Devuelve si se ha vaciado el estacionamiento con exito (True) o no (False)</returns>
         public bool UpdateEstacionamientoVacio(int idPlaza)
         {
             if (FindById(idPlaza) != null)
