@@ -15,6 +15,7 @@ namespace ProyectoFinalDint.servicios
         private String nombreDB = "parking.db";
         private SqliteConnection conexion;
         private SqliteCommand comando;
+        ///
         public SQLiteRepositoryClientes()
         {
             this.conexion = new SqliteConnection("Data Source=" + this.nombreDB);

@@ -25,6 +25,11 @@ namespace ProyectoFinalDint.servicios
             this.src = source;
             this.conexion = new SqliteConnection("Data Source=" + this.src + this.nombreDB);
         }
+        /// <summary>
+        /// 
+        ///
+        /// </summary>
+        /// <param name="marca"></param>
         public void Inserta(Marcas marca)
         {
             this.conexion.Open();
@@ -46,6 +51,11 @@ namespace ProyectoFinalDint.servicios
             lector.GetInt32(0),
             lector[1].ToString()
         );
+        /// <summary>
+        /// Encontramos una marca por su id 
+        /// </summary>
+        /// <param name="id"></param> id de la marca
+        /// <returns></returns>
         public Marcas FindById(int id)
         {
             this.conexion.Open();
@@ -68,6 +78,11 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
+        /// <summary>
+        /// Encontramos una marca por su marca 
+        /// </summary>
+        /// <param name="marca"></param> 
+        /// <returns></returns>
         public Marcas FindByMarca(String marca)
         {
             this.conexion.Open();
@@ -84,6 +99,10 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
+        /// <summary>
+        /// Enseñamos todas las marcas almacenadas en nuestra coleccion
+        /// </summary>
+        /// <returns></returns>
         public ObservableCollection<Marcas> FindAll()
         {
             this.conexion.Open();
@@ -106,6 +125,12 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
+        /// <summary>
+        /// Actualizamos la marca por su campo id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="marca"></param>
+        /// <returns></returns>
         public bool UpdateMarcaById(int id, String marca)
         {
             if (FindById(id) != null)
@@ -130,6 +155,11 @@ namespace ProyectoFinalDint.servicios
             else return false;
         }
         public bool UpdateMarca(Marcas marca) => UpdateMarcaById(marca.Id_marca, marca.Marca);
+        /// <summary>
+        /// Eliminamos una marca por su id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool DeleteMarcaById(int id)
         {
             if (FindById(id) != null)

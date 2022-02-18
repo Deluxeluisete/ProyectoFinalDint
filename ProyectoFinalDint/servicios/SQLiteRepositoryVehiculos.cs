@@ -11,6 +11,7 @@ namespace ProyectoFinalDint.servicios
 {
     class SQLiteRepositoryVehiculos
     {
+        
         private String src = "";
         private String nombreDB = "parking.db";
         private SqliteConnection conexion;
@@ -19,12 +20,21 @@ namespace ProyectoFinalDint.servicios
         {
             this.conexion = new SqliteConnection("Data Source=" + this.nombreDB);
         }
+        /// <summary>
+        /// Constructor que recibe el nombre de la DB y un string source
+        /// </summary>
+        /// <param name="nombredb"></param> Almaceno el nombre de la BD
+        /// <param name="source"></param> 
         public SQLiteRepositoryVehiculos(String nombredb, String source)
         {
             this.nombreDB = nombredb;
             this.src = source;
             this.conexion = new SqliteConnection("Data Source=" + this.src + this.nombreDB);
         }
+        /// <summary>
+        /// Insertamos un nuevo vehiculo a nuestra base de datos
+        /// </summary>
+        /// <param name="Vehiculo"></param> recibimos un vehiculo del tipo vehiculo 
         public void InsertaVehiculo(Vehiculos Vehiculo)
         {
             this.conexion.Open();
@@ -59,7 +69,11 @@ namespace ProyectoFinalDint.servicios
             lector[4].ToString(),
             lector[5].ToString()
         );
-        
+        /// <summary>
+        /// Encontramos vehiculos gracias al campo id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>devolvemos el vehiculo que buscamos por su id</returns>
         public Vehiculos FindById(int id)
         {
             this.conexion.Open();
@@ -82,7 +96,13 @@ namespace ProyectoFinalDint.servicios
             this.conexion.Close();
             lector.Close();
             return v;
+            
         }
+        /// <summary>
+        /// Encontramos un vehiculo gracias a su matricula
+        /// </summary>
+        /// <param name="mat"></param> matricula del vehiculo
+        /// <returns>devolvemos el vehiculo que buscamos por su matricula</returns>
         public Vehiculos FindByMatricula(String mat)
         {
             this.conexion.Open();
@@ -102,6 +122,10 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
+        /// <summary>
+        /// Cargamos nuestra coleccion de vehiculos 
+        /// </summary>
+        /// <returns>devuelve los vehiculos que tenemos en nuestra bd</returns>
         public ObservableCollection<Vehiculos> FindAll()
         {
             this.conexion.Open();
@@ -124,6 +148,13 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
+        /// <summary>
+        /// Actualizamos el modelo del vehiculo gracias a la matricula
+        /// </summary>
+        /// <param name="modelo"></param>
+        /// <param name="matricula"></param>
+        /// <param name="id"></param>
+        /// <returns>devolvemos true o false dependiendo de si encontramos la id</returns>
         public bool UpdateVehiculoModeloMatricula(String modelo, String matricula, int id)
         {
             if (FindById(id) != null)
@@ -149,6 +180,11 @@ namespace ProyectoFinalDint.servicios
             }
             else return false;
         }
+        /// <summary>
+        /// Actualizamos un objeto vehiculo
+        /// </summary>
+        /// <param name="vehiculo"></param>
+        /// <returnsdevolvemos true o false ></returns>
         public bool UpdateVehiculo(Vehiculos vehiculo)
         {
             if (FindById(vehiculo.Id_vehiculo.Value) != null)
@@ -182,6 +218,11 @@ namespace ProyectoFinalDint.servicios
             }
             else return false;
         }
+        /// <summary>
+        /// Borramos un vehiculo por su campo id
+        /// </summary>
+        /// <param name="id"></param> id del vehiculo
+        /// <returns>devuelve un boolean</returns>
         public bool DeleteVehiculoById(int id)
         {
             if (FindById(id) != null)
@@ -194,7 +235,7 @@ namespace ProyectoFinalDint.servicios
                 comando.Parameters.Add("@id", SqliteType.Integer);
 
                 comando.Parameters["@id"].Value = id;
-
+                    
                 comando.ExecuteNonQuery();
                 this.conexion.Close();
                 return true;
@@ -205,7 +246,11 @@ namespace ProyectoFinalDint.servicios
                 return false;
             }
         }
-
+        /// <summary>
+        /// Borramos un vehiculo identificado por su objeto vehiculo
+        /// </summary>
+        /// <param name="vehiculo"></param>
+        /// <returns>devolvemos un boolean</returns>
         public bool DeleteVehiculo(Vehiculos vehiculo)
         {
             if (FindById(vehiculo.Id_vehiculo.Value) != null)
