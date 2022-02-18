@@ -10,6 +10,7 @@ namespace ProyectoFinalDint.servicios
 {
     class MessageService
     {
+        
         public class VehiculoMessage : ValueChangedMessage<Vehiculos>
         {
             public VehiculoMessage(Vehiculos vehiculo) : base(vehiculo) { }

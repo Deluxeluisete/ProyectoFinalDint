@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using static ProyectoFinalDint.servicios.MessageService;
 
 namespace ProyectoFinalDint.vistamodelo
@@ -23,6 +24,7 @@ namespace ProyectoFinalDint.vistamodelo
         }
 
         public RelayCommand ExaminarFotoCommand { get; }
+
         private NavigationService navigation;
 
 
@@ -34,7 +36,7 @@ namespace ProyectoFinalDint.vistamodelo
 
         private void ExaminarFoto()
         {
-            throw new NotImplementedException(); //Implementar que coja la foto de azure y saque el genero y la edad para añadirla al objeto Cliente
+            MessageBox.Show("Examina Foto"); //Implementar que coja la foto de azure y saque el genero y la edad para añadirla al objeto Cliente
         }
 
         internal void Aceptar()

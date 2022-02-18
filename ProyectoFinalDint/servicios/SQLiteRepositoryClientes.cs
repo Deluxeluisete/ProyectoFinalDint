@@ -27,6 +27,10 @@ namespace ProyectoFinalDint.servicios
             this.conexion = new SqliteConnection("Data Source=" + this.src + this.nombreDB);
         }
 
+        /// <summary>
+        /// Se encarga de Insertar un cliente nuevo que le entra por parametro en la base de datos
+        /// </summary>
+        /// <param name="cliente">Un objeto cliente</param>
         public void Inserta(Clientes cliente)
         {
             this.conexion.Open();
@@ -63,6 +67,11 @@ namespace ProyectoFinalDint.servicios
             lector[6].ToString(),
             lector.IsDBNull(4) ? 0 : lector.GetInt32(4)
         );
+        /// <summary>
+        /// Encuentra un cliente en la base de datos por su ID
+        /// </summary>
+        /// <param name="id">el identificador del cliente</param>
+        /// <returns>Un objeto Clientes</returns>
         public Clientes FindById(int id)
         {
             this.conexion.Open();
@@ -85,6 +94,11 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
+        /// <summary>
+        /// Encuentra un cliente por su DNI
+        /// </summary>
+        /// <param name="doc">El Dni del cliente</param>
+        /// <returns>Devuelve un Cliente</returns>
         public Clientes FindByDocumento(String doc)
         {
             this.conexion.Open();
@@ -101,6 +115,10 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return null;
         }
+        /// <summary>
+        /// Busca todos los clientes de la base de datos
+        /// </summary>
+        /// <returns>Una lista con todos los clientes y todos sus campos</returns>
         public ObservableCollection<Clientes> FindAll()
         {
             this.conexion.Open();
@@ -123,6 +141,14 @@ namespace ProyectoFinalDint.servicios
             lector.Close();
             return clientes;
         }
+
+        /// <summary>
+        /// Actualiza la edad de un cliente
+        /// </summary>
+        /// <param name="edad">Nueva edad para darle al cliente</param>
+        /// <param name="genero">El genero del cliente</param>
+        /// <param name="id">Id del cliente</param>
+        /// <returns>Devuelve un booleano confirmando si ha realizado con exito (True) el update o no(False)</returns>
         public bool UpdateClienteEdadGenero(int edad, String genero, int id)
         {
             if (FindById(id) != null)
@@ -151,6 +177,11 @@ namespace ProyectoFinalDint.servicios
                 return false;
             }
         }
+        /// <summary>
+        /// Actualiza un cliente con los datos extraidos de un objeto cliente
+        /// </summary>
+        /// <param name="cliente">Objeto cliente</param>
+        /// <returns>Devuelve un booleano confirmando si ha realizado con exito (True) el update o no(False)</returns>
         public bool UpdateCliente(Clientes cliente)
         {
             if (FindById(cliente.Id_cliente) != null)
@@ -186,7 +217,11 @@ namespace ProyectoFinalDint.servicios
             }
             else return false;
         }
-
+        /// <summary>
+        /// Borra un cliente por el Id
+        /// </summary>
+        /// <param name="id">Id del cliente</param>
+        /// <returns>Devuelve un booleano confirmando si ha realizado con exito (True) el Delete o no(False)</returns>
         public bool DeleteClienteById(int id)
         {
             if (FindById(id) != null)
@@ -210,6 +245,11 @@ namespace ProyectoFinalDint.servicios
                 return false;
             }
         }
+        /// <summary>
+        /// Borra un cliente
+        /// </summary>
+        /// <param name="cliente">Cliente del cual extraera el id para borrar el cliente </param>
+        /// <returns>Devuelve un booleano confirmando si ha realizado con exito (True) el Delete o no(False)</returns>
         public bool DeleteCliente(Clientes cliente) => DeleteClienteById(cliente.Id_cliente);
     }
 }

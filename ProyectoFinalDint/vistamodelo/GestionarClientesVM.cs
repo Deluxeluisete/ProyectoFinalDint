@@ -64,7 +64,7 @@ namespace ProyectoFinalDint.vistamodelo
             WeakReferenceMessenger.Default.Register<NuevoClienteMessage>(this, (r, m) => { ClienteSeleccionado = m.Value; });
 
         }
-
+        
         private void EliminarCliente()
         {
             ServicioSQLite.DeleteCliente(ClienteSeleccionado);
